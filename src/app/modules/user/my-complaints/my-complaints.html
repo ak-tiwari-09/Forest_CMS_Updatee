@@ -1,0 +1,349 @@
+<div class="db-wrap" [class.sidebar-collapsed]="isCollapsed">
+
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar">
+        <div class="sb-brand">
+            <button class="toggle-btn" (click)="toggleSidebar()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+                </svg>
+            </button>
+            <div class="sb-brand-text">
+                <div class="sb-title">Forest Complaint<br>Management</div>
+                <div class="sb-sub">Smart Public System</div>
+            </div>
+        </div>
+        <div class="sb-nav">
+            <div class="sb-item active" routerLink="user/my-complaint">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                </svg>
+                <span class="sb-label">My Complaints</span>
+            </div>
+        </div>
+        <div class="sb-footer">
+            <button class="logout-btn" (click)="logout()">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                </svg>
+                <span class="sb-label">Logout</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+        <!-- HEADER -->
+        <div class="page-title-section">
+            <div>
+                <h1>My Complaint Records</h1>
+                <p>Manage and track Forest feedback in real-time</p>
+            </div>
+        </div>
+
+        <!-- STAT CARDS -->
+        <!-- <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon icon-purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" width="16" height="16">
+                        <path d="M9 12h6m-3-3v6M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z" />
+                    </svg>
+                </div>
+                <div class="stat-value">{{ complaints.length }}</div>
+                <div class="stat-label">Total Complaints</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" width="16" height="16">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 3" />
+                    </svg>
+                </div>
+                <div class="stat-value">{{ getStatusCount('In Progress') }}</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" width="16" height="16">
+                        <path d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <div class="stat-value">{{ getStatusCount('Resolved') }}</div>
+                <div class="stat-label">Resolved</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-pink">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" width="16" height="16">
+                        <path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                    </svg>
+                </div>
+                <div class="stat-value">{{ getPriorityCount('High') }}</div>
+                <div class="stat-label">High Priority</div>
+            </div>
+        </div> -->
+
+        <!-- TABLE CARD -->
+        <div class="table-card">
+
+            <!-- LOADING SHIMMER -->
+            <div *ngIf="isLoading" class="shimmer-wrap">
+                <div class="shimmer-row" *ngFor="let i of [1,2,3,4,5]">
+                    <div class="shimmer s1"></div>
+                    <div class="shimmer s2"></div>
+                    <div class="shimmer s3"></div>
+                    <div class="shimmer s4"></div>
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <table class="Forest-table" *ngIf="!isLoading && filteredComplaints.length > 0">
+                <thead>
+                    <tr>
+                        <th>Forest</th>
+                        <th>Ref ID</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Date Filed</th>
+                        <th>Status</th>
+                        <!-- <th class="text-center">Action</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of pagedComplaints; let i = index">
+                        <td>
+                            <div class="Forest-info">
+                                <div class="avatar-sm" [ngClass]="getAvatarClass(i)">
+                                    {{ item.cP_Name.charAt(0).toUpperCase() }}
+                                </div>
+                                <div>
+                                    <p class="name">{{ item.cP_Name }}</p>
+                                    <p class="subtext">Forest</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="ref-id">{{ item.cP_RefNo }}</span></td>
+                        <td><span class="cat-tag">{{ item.categoryName || 'General' }}</span></td>
+                        <td>
+                            <span class="prio-tag" [ngClass]="{
+                                'high':   item.cP_Priority === 'High',
+                                'medium': item.cP_Priority === 'Medium',
+                                'low':    item.cP_Priority === 'Low'
+                            }">{{ item.cP_Priority || 'Normal' }}</span>
+                        </td>
+                        <td class="date-cell">{{ item.cP_CreatedAt | date:'dd MMM yyyy' }}</td>
+                        <td>
+                            <span class="status-pill" [ngClass]="{
+                                'pending':   item.cP_Status === 'Pending',
+                                'progress':  item.cP_Status === 'In Progress',
+                                'resolved':  item.cP_Status === 'Resolved',
+                                'escalated': item.cP_Status === 'Escalated'
+                            }">{{ item.cP_Status || 'Pending' }}</span>
+                        </td>
+                        <!-- <td class="text-center">
+                            <button class="btn-action" (click)="openComplaintDetails(item.cP_RefNo)">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="5" r="1.5" />
+                                    <circle cx="12" cy="12" r="1.5" />
+                                    <circle cx="12" cy="19" r="1.5" />
+                                </svg>
+                            </button>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- EMPTY STATE -->
+            <div class="empty-state" *ngIf="!isLoading && filteredComplaints.length === 0">
+                <div class="empty-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.2">
+                        <path d="M9 12h6m-3-3v6M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z" />
+                    </svg>
+                </div>
+                <p class="empty-title">No complaints found</p>
+                <p class="empty-sub">Try adjusting your search or add a new complaint</p>
+            </div>
+
+            <!-- TABLE FOOTER -->
+            <div class="table-footer" *ngIf="!isLoading && filteredComplaints.length > 0">
+                <span>
+                    Showing {{ (currentPage - 1) * pageSize + 1 }}–{{ getPageEnd() }}
+                    of {{ filteredComplaints.length }} results
+                </span>
+                <div class="pagination">
+                    <button class="p-btn" (click)="prevPage()" [disabled]="currentPage === 1">‹</button>
+                    <button class="p-btn" *ngFor="let p of totalPagesArray()"
+                        [ngClass]="{ 'active': p === currentPage }" (click)="goToPage(p)">{{ p }}</button>
+                    <button class="p-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">›</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- END TABLE CARD -->
+
+    </div>
+    <!-- END MAIN CONTENT -->
+
+</div>
+<!-- END DB-WRAP -->
+
+
+<!-- ✅ POPUP MODAL -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+
+        <!-- Header -->
+        <div class="modal-header">
+            <div>
+                <h2>Complaint Details</h2>
+                <span class="ref-badge">{{ selectedComplaint?.cP_RefNo }}</span>
+            </div>
+            <button class="modal-close" (click)="closeModal()">✕</button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body" *ngIf="selectedComplaint">
+
+            <!-- Status Row -->
+            <div class="status-row">
+                <span class="status-pill pending">{{ selectedComplaint.cP_Status }}</span>
+                <span class="prio-tag medium">{{ selectedComplaint.cP_Priority }}</span>
+                <span class="meta-text">Filed: {{ selectedComplaint.cP_CreatedAt | date:'dd MMM yyyy' }}</span>
+            </div>
+
+            <!-- Section: Personal -->
+            <div class="detail-section">
+                <div class="section-title">Personal Information</div>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="dl">Full Name</span>
+                        <span class="dv">{{ selectedComplaint.cP_Name }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Father / Guardian</span>
+                        <span class="dv">{{ selectedComplaint.cP_FatherName }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Date of Birth</span>
+                        <span class="dv">{{ selectedComplaint.cP_DOB | date:'dd MMM yyyy' }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Gender</span>
+                        <span class="dv">{{ selectedComplaint.cP_Gender === 'M' ? 'Male' : selectedComplaint.cP_Gender
+                            === 'F' ? 'Female' : 'Other' }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Mobile</span>
+                        <span class="dv">{{ selectedComplaint.cP_Mobile }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Alt Mobile</span>
+                        <span class="dv">{{ selectedComplaint.cP_AltMobile || '—' }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Email</span>
+                        <span class="dv">{{ selectedComplaint.cP_Email || '—' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Address -->
+            <div class="detail-section">
+                <div class="section-title">Address</div>
+                <div class="detail-grid">
+                    <div class="detail-item full">
+                        <span class="dl">Full Address</span>
+                        <span class="dv">{{ selectedComplaint.addr_Full }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">City</span>
+                        <span class="dv">{{ selectedComplaint.addr_City }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">State</span>
+                        <span class="dv">{{ selectedComplaint.addr_State }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">PIN Code</span>
+                        <span class="dv">{{ selectedComplaint.addr_Pin }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Complaint Details -->
+            <div class="detail-section">
+                <div class="section-title">Complaint Details</div>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="dl">Category</span>
+                        <span class="dv">{{ selectedComplaint.category_Name }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Sub Category</span>
+                        <span class="dv">{{ selectedComplaint.subCategoriesName }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Incident Date</span>
+                        <span class="dv">{{ selectedComplaint.det_IncDate | date:'dd MMM yyyy' }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="dl">Previous Ref No</span>
+                        <span class="dv">{{ selectedComplaint.cP_PrevRefNo || '—' }}</span>
+                    </div>
+                    <div class="detail-item full">
+                        <span class="dl">Subject</span>
+                        <span class="dv">{{ selectedComplaint.det_Subject }}</span>
+                    </div>
+                    <div class="detail-item full">
+                        <span class="dl">Description</span>
+                        <span class="dv">{{ selectedComplaint.det_Desc }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Documents -->
+            <div class="detail-section">
+                <div class="section-title">Documents</div>
+                <div class="doc-grid">
+
+                    <!-- Identity Doc -->
+                    <div class="doc-card" *ngIf="selectedComplaint.identityDoc_Path">
+                        <div class="doc-label">Identity Proof</div>
+                        <div class="doc-name">{{ selectedComplaint.identityDoc_Name }}</div>
+                        <img *ngIf="!isPdf(selectedComplaint.identityDoc_Path)"
+                            [src]="getImageUrl(selectedComplaint.identityDoc_Path)" class="doc-preview"
+                            (error)="onImgError($event)">
+                        <div class="pdf-icon" *ngIf="isPdf(selectedComplaint.identityDoc_Path)">
+                            📄 PDF Document
+                        </div>
+                        <a [href]="getImageUrl(selectedComplaint.identityDoc_Path)" target="_blank"
+                            class="doc-link">View / Download</a>
+                    </div>
+
+                    <!-- Support Doc -->
+                    <div class="doc-card" *ngIf="selectedComplaint.supportDoc_Path">
+                        <div class="doc-label">Supporting Document</div>
+                        <div class="doc-name">{{ selectedComplaint.supportDoc_Name }}</div>
+                        <img *ngIf="!isPdf(selectedComplaint.supportDoc_Path)"
+                            [src]="getImageUrl(selectedComplaint.supportDoc_Path)" class="doc-preview"
+                            (error)="onImgError($event)">
+                        <div class="pdf-icon" *ngIf="isPdf(selectedComplaint.supportDoc_Path)">
+                            📄 PDF Document
+                        </div>
+                        <a [href]="getImageUrl(selectedComplaint.supportDoc_Path)" target="_blank" class="doc-link">View
+                            / Download</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- End Modal Body -->
+
+    </div>
+</div>

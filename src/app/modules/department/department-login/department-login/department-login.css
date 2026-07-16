@@ -1,0 +1,307 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI',sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;   /* prevent scrollbars */
+}
+
+body{
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+.login-wrap {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;   /* ensure no scrollbars inside */
+}
+
+/* LEFT SIDE */
+
+.ll {
+  flex: 1;
+  background: linear-gradient(
+    135deg,
+    #667db6,
+    #0082c8,
+    #0082c8,
+    #667db6,
+    #1cb5e0,
+    #000046
+  );
+  background-size: 400% 400%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #fff;
+  animation: heroGradient 8s ease infinite;
+  overflow: hidden;   /* keep gradient inside */
+} 
+
+/* Gradient animation keyframes */
+@keyframes heroGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ll-illo{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.ll h2{
+  font-size:22px;
+  font-weight:700;
+  text-align:center;
+}
+
+.ll p{
+  font-size:13px;
+  text-align:center;
+  margin-top:10px;
+  opacity:0.8;
+}
+
+.fpills{
+  margin-top:25px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.fp{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,0.15);
+  padding:8px 15px;
+  border-radius:30px;
+  font-size:12px;
+}
+
+/* RIGHT SIDE */
+.lr{
+  width:400px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:35px;
+}
+
+.lr-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.lb{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#7C4DFF,#E040FB);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+
+.lr h3{
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.lr p{
+  font-size:12px;
+  color:#777;
+  margin-bottom:20px;
+}
+
+.lform{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.lff{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.lff label{
+  font-size:11px;
+  font-weight:600;
+  color:#7C4DFF;
+}
+
+.lff input{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.lrow{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+}
+
+.btn-login{
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(135deg,#7C4DFF,#E040FB);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn-otp{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  background:#fff;
+  cursor:pointer;
+}
+
+.ldiv{
+  text-align:center;
+  font-size:12px;
+  color:#aaa;
+}
+
+.lnote{
+  margin-top:15px;
+  font-size:12px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .ll{
+    display:none;
+  }
+
+  .lr{
+    width:100%;
+  }
+}
+
+/* ===== GLOBAL SVG RESET ===== */
+svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+}
+
+/* LEFT PANEL ICON (BIG CIRCLE ICON) */
+.ll-illo svg{
+  width:70px;
+  height:70px;
+  stroke:#fff;
+  stroke-width:1.5;
+}
+
+/* FEATURE PILLS ICONS */
+.fp svg{
+  width:14px;
+  height:14px;
+  stroke:#fff;
+  stroke-width:2;
+  flex-shrink:0;
+}
+
+/* LOGO ICON (RIGHT SIDE) */
+.lb svg{
+  width:18px;
+  height:18px;
+  stroke:#fff;
+  stroke-width:2;
+}
+
+/* OPTIONAL: HOVER EFFECT (Nice UI) */
+.fp:hover svg{
+  transform:scale(1.1);
+  transition:0.2s ease;
+}
+
+/* OPTIONAL: SMOOTH TRANSITIONS */
+svg{
+  transition:all 0.2s ease;
+}
+
+
+.nav-btn{
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  /* background:linear-gradient(135deg,#7C4DFF,#E040FB); */
+  background:linear-gradient(135deg,#02f5e9,#1df1c3);
+  /* color:#fff; */
+    color:#f3f4f5;
+  font-weight:600;
+
+  cursor:pointer;
+}
+
+
+
+.nav-btn {
+  flex: 1;          /* ← each button takes half the width */
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  background: #00e5c0;
+  color: #eef1f1;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: #00c9a8;
+  transform: translateY(-1px);
+}
+.nav-btn-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+
+.lr-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.lr-logo h2 {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a3a5c;
+}

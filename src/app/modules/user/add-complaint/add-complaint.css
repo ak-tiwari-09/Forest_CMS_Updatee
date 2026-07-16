@@ -1,0 +1,632 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* APP */
+.app {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4ff;
+  min-height: 100vh;
+}
+
+/* SCREEN */
+.screen {
+  display: none;
+}
+.screen.visible {
+  display: block;
+}
+
+/* HERO */
+/* HERO BAR with animated gradient */
+.hero-bar {
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(135deg,
+#667db6,
+#0082c8,
+#0082c8,
+#667db6,
+#1cb5e0,
+#000046
+);
+  background-size: 300% 300%;
+  animation: heroGradient 8s ease infinite;
+}
+
+
+@keyframes heroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-bar h1 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.hero-bar p {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* MAIN */
+.main {
+  padding: 16px;
+}
+
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CARD */
+.mat-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e8e0ff;
+  overflow: hidden;
+}
+
+/* CARD HEADER */
+.ch {
+  padding: 12px 18px;
+  border-bottom: 1px solid #f0ebff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ch-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ch-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke-width: 2;
+}
+
+.ch h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D1B69;
+}
+
+.ch p {
+  font-size: 11px;
+  color: #9B8ECC;
+}
+
+/* CARD BODY */
+.cb {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* GRID */
+.r2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.r3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+/* FORM */
+.ff {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ff label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #7C4DFF;
+  text-transform: uppercase;
+}
+
+.req {
+  color: #E040FB;
+}
+
+.ff input,
+.ff select,
+.ff textarea {
+  border: 1.5px solid #e0d8ff;
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 13px;
+  color: #2D1B69;
+  outline: none;
+  width: 100%;
+}
+
+.ff input:focus,
+.ff select:focus,
+.ff textarea:focus {
+  border-color: #7C4DFF;
+  box-shadow: 0 0 0 3px rgba(124,77,255,0.1);
+}
+
+.ff textarea {
+  min-height: 86px;
+  resize: vertical;
+}
+
+.hint {
+  font-size: 10px;
+  color: #9B8ECC;
+}
+
+/* UPLOAD */
+.ugrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ubox {
+  border: 2px dashed #d4c9ff;
+  border-radius: 11px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: #faf7ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ubox:hover {
+  border-color: #7C4DFF;
+}
+
+.ui {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f3edff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui svg {
+  width: 16px;
+  height: 16px;
+  stroke: #7C4DFF;
+  fill: none;
+}
+
+.ut {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2D1B69;
+}
+
+.us {
+  font-size: 11px;
+  color: #9B8ECC;
+}
+
+.upill {
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: #ede9ff;
+  color: #5C35D3;
+}
+
+/* CHECKBOX */
+.chk-row {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 11px;
+  border-radius: 9px;
+  background: #f5f0ff;
+  border: 1px solid #e8e0ff;
+}
+
+.chk-row input {
+  accent-color: #7C4DFF;
+  margin-top: 2px;
+}
+
+.chk-row span {
+  font-size: 12px;
+  color: #5C35D3;
+}
+
+/* ACTIONS */
+.mat-actions {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e8e0ff;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  gap: 10px;
+}
+
+
+.btn-save {
+  padding: 8px 18px;
+  border: 1.5px solid #d4c9ff;
+  border-radius: 8px;
+  background: transparent;
+  color: #7C4DFF;
+  cursor: pointer;
+}
+
+.btn-submit {
+  padding: 9px 22px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#7C4DFF,#E040FB);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mat-actions {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e8e0ff;
+  padding: 12px 18px;
+  display: flex;
+  width: 100%;              /* make sure it spans full card width */
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  gap: 10px;
+}
+
+/* Save Button */
+.btn-save {
+  padding: 8px 18px;
+  border: 1.5px solid #d4c9ff;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  color: #7C4DFF;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.btn-save:hover {
+  background: #faf7ff;
+}
+
+/* Submit Button */
+.btn-submit {
+  padding: 9px 22px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7C4DFF, #E040FB);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 14px rgba(124,77,255,0.3);
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+  background: linear-gradient(135deg, #E040FB, #7C4DFF);
+}
+
+.btn-submit svg {
+  width: 13px;
+  height: 13px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Highlight invalid fields */
+.ff input.ng-invalid.ng-touched,
+.ff select.ng-invalid.ng-touched,
+.ff textarea.ng-invalid.ng-touched {
+  border: 1px solid #e74c3c;       /* red border */
+  background: #fdecea;             /* light red background */
+  animation: shake 0.3s ease;      /* subtle shake animation */
+}
+
+/* Error message styling */
+.error-msg {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show error message when invalid */
+.error-msg.show,
+.ff input.ng-invalid.ng-touched ~ .error-msg,
+.ff select.ng-invalid.ng-touched ~ .error-msg,
+.ff textarea.ng-invalid.ng-touched ~ .error-msg {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-4px); }
+  50%  { transform: translateX(4px); }
+  75%  { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+
+/* Mandatory field star */
+.req {
+  color: #e60000;             /* vivid red */
+  font-weight: bold;
+  font-size: 16px;            /* slightly larger */
+  margin-left: 4px;
+  text-shadow: 0 0 6px rgba(255,0,0,0.7); /* glowing effect */
+  animation: pulse-glow 1.2s infinite;
+}
+
+/* Glow + pulse animation */
+@keyframes pulse-glow {
+  0%   { color: #e60000; text-shadow: 0 0 6px rgba(255,0,0,0.7); }
+  50%  { color: #ff3333; text-shadow: 0 0 12px rgba(255,0,0,1); }
+  100% { color: #e60000; text-shadow: 0 0 6px rgba(255,0,0,0.7); }
+}
+
+
+/* Fixed toolbar */
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px; /* adjust to your actual toolbar height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #fff; /* or your gradient */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Push content below toolbar */
+body,
+.app {
+  padding-top: 60px; /* same as toolbar height */
+}
+
+
+
+/* Card container */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+/* Card header */
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;              /* slightly smaller padding */
+  background: linear-gradient(135deg, #55ebff, #08e2ff); /* soft blue gradient */
+  color: #004d40;
+  border-bottom: 1px solid #d0ebeb; /* subtle divider */
+}
+
+.card-icon {
+  width: 32px;                     /* smaller icon box */
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;                 /* smaller icon size */
+  background: rgba(255,255,255,0.25);
+}
+
+/* Upload Documents Heading */
+.card-title {
+  font-size: 14px;                 /* reduced font size */
+  font-weight: 600;
+  color: #004d40;                  /* solid dark teal text */
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.card-sub {
+  font-size: 11px;                 /* smaller subtitle */
+  color: #00695c;                  /* softer teal tone */
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Card body */
+.card-body {
+  padding: 10px 12px;              /* slightly smaller padding */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* Upload grid */
+.ugrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Upload box */
+.ubox {
+  border: 2px dashed #d4c9ff;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  cursor: pointer;
+  background: #faf7ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.ubox:hover {
+  border-color: #7C4DFF;
+  transform: scale(1.03);
+}
+
+/* Upload icon */
+.ubox-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#7C4DFF,#E040FB);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(124,77,255,0.3);
+}
+
+/* Upload text */
+.ubox-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D1B69;
+}
+.ubox-sub {
+  font-size: 11px;
+  color: #777;
+}
+.ubox-pill {
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #ede9ff;
+  color: #5C35D3;
+  font-weight: 500;
+}
+
+/* Checkbox row */
+.chk-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff8f0;
+  border: 1px solid #ffd9b3;
+}
+.chk-row input {
+  accent-color: #FF9800;
+  margin-top: 2px;
+}
+.chk-row span {
+  font-size: 12px;
+  color: #e67e22;
+  font-weight: 500;
+}
+
+/* Error message */
+.err-msg {
+  font-size: 12px;
+  color: #e74c3c;
+  margin-top: -8px;
+  transition: opacity 0.3s ease;
+}
+
+/* Optional: add glow effect on hover */
+.card-title:hover {
+  text-shadow: 0 0 8px rgba(124,77,255,0.6);
+}
+
+.pill-success {
+  background-color: #19ca19;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.ubox-error {
+  border-color: #e53935 !important;
+  background-color: #fff5f5;
+}
+
+.ubox-err {
+  font-size: 0.75rem;
+  color: #e53935;
+  margin-top: 4px;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* space for eye button */
+}
+
+.eye-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  font-size: 15px;
+}
+
+.eye-btn:hover {
+  color: #333;
+}
+

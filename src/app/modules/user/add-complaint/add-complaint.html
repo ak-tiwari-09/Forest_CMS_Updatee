@@ -1,0 +1,299 @@
+<app-navbar></app-navbar>
+<div class="app">
+  <div class="screen visible" id="screen-complaint">
+    <div class="hero-bar">
+      <h1>Register New Complaint</h1>
+      <p>Submit your complaint easily and track its status in real-time</p>
+    </div>
+
+    <form [formGroup]="complaintForm" (ngSubmit)="submitComplaint()" class="main">
+      <div class="wrap">
+
+        <!-- Section 1 -->
+        <div class="mat-card">
+          <div class="card-head">
+
+            <div>
+              <h3>Personal Information</h3>
+
+            </div>
+          </div>
+          <div class="cb">
+            <div class="r2">
+              <div class="ff">
+                <label>Full name <span class="req">*</span></label>
+                <input type="text" formControlName="fullName" placeholder="As per official ID">
+                <div class="error-msg"
+                  *ngIf="complaintForm.get('fullName')?.touched && complaintForm.get('fullName')?.invalid">
+                  Full name is required (min 3 characters).
+                </div>
+              </div>
+              <div class="ff">
+                <label>Father / Guardian name <span class="req">*</span> </label>
+                <input type="text" formControlName="guardianName" placeholder="Guardian's full name">
+                <div class="error-msg"
+                  *ngIf="complaintForm.get('guardianName')?.touched && complaintForm.get('guardianName')?.invalid">
+                  Guardian name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="r3">
+              <div class="ff">
+                <label>Date of birth <span class="req">*</span> </label>
+                <input type="date" formControlName="dob">
+                <div class="error-msg" *ngIf="complaintForm.get('dob')?.touched && complaintForm.get('dob')?.invalid">
+                  Date of birth is required.
+                </div>
+              </div>
+              <div class="ff">
+                <label>Gender <span class="req">*</span> </label>
+                <select formControlName="gender">
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
+                  <option value="O">Other</option>
+                </select>
+                <div class="error-msg"
+                  *ngIf="complaintForm.get('gender')?.touched && complaintForm.get('gender')?.invalid">
+                  Gender is required.
+                </div>
+              </div>
+              <div class="ff">
+                <label>Mobile <span class="req">*</span></label>
+                <input type="tel" formControlName="mobile" placeholder="10-digit number">
+                <div class="error-msg"
+                  *ngIf="complaintForm.get('mobile')?.touched && complaintForm.get('mobile')?.invalid">
+                  Enter a valid 10-digit mobile number.
+                </div>
+              </div>
+            </div>
+
+            <div class="r2">
+              <div class="ff"><label>Alternate mobile</label><input type="tel" formControlName="altMobile"></div>
+              <div class="ff">
+                <label>Email <span class="req">*</span> </label>
+                <input type="email" formControlName="email" placeholder="you@example.com">
+                <div class="error-msg"
+                  *ngIf="complaintForm.get('email')?.touched && complaintForm.get('email')?.invalid">
+                  Enter a valid email address.
+                </div>
+              </div>
+            </div>
+
+            <!-- Password Row -->
+            <div class="r2">
+              <div class="ff">
+                <label>Create Password <span class="req">*</span></label>
+                <div class="password-wrapper">
+                  <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                    placeholder="Min 8 chars, letter + number + special" autocomplete="new-password" />
+                  <button type="button" class="eye-btn" (click)="showPassword = !showPassword">
+                    <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                  </button>
+                </div>
+                <div class="error-msg"
+                  *ngIf="complaintForm.get('password')?.touched && complaintForm.get('password')?.invalid">
+                  <span *ngIf="complaintForm.get('password')?.errors?.['required']">Password is required.</span>
+                  <span *ngIf="complaintForm.get('password')?.errors?.['minlength']">Minimum 8 characters.</span>
+                  <span *ngIf="complaintForm.get('password')?.errors?.['pattern']">
+                    Must include a letter, number, and special character.
+                  </span>
+                </div>
+              </div>
+
+              <div class="ff">
+                <label>Confirm Password <span class="req">*</span></label>
+                <div class="password-wrapper">
+                  <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword"
+                    placeholder="Re-enter password" autocomplete="new-password" />
+                  <button type="button" class="eye-btn" (click)="showConfirmPassword = !showConfirmPassword">
+                    <i [class]="showConfirmPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                  </button>
+                </div>
+                <div class="error-msg" *ngIf="complaintForm.get('confirmPassword')?.touched">
+                  <span *ngIf="complaintForm.get('confirmPassword')?.errors?.['required']">
+                    Confirm password is required.
+                  </span>
+                  <span
+                    *ngIf="complaintForm.errors?.['passwordMismatch'] && !complaintForm.get('confirmPassword')?.errors?.['required']">
+                    Passwords do not match.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ff">
+              <label>Full address <span class="req">*</span> </label>
+              <textarea formControlName="address"></textarea>
+              <div class="error-msg"
+                *ngIf="complaintForm.get('address')?.touched && complaintForm.get('address')?.invalid">
+                Address is required (min 10 characters).
+              </div>
+            </div>
+
+            <div class="r3">
+
+              <!-- <div class="ff"><label>State <span class="req">*</span></label><input formControlName="state"></div> -->
+              <div class="ff">
+                <label>State <span class="req">*</span></label>
+                <select formControlName="state">
+                  <option value="">Select State</option>
+                  <option [value]="st.state_id" *ngFor="let st of StatesList">
+                    {{ st.state_name }}
+                  </option>
+                </select>
+              </div>
+
+              <!-- <div class="ff"><label>City <span class="req">*</span></label><input formControlName="city"></div> -->
+              <!-- City -->
+              <div class="ff">
+                <label>City <span class="req">*</span></label>
+                <select formControlName="city" [disabled]="CitiesList.length === 0">
+                  <option value="">Select City</option>
+                  <option [value]="ct.city_id" *ngFor="let ct of CitiesList">
+                    {{ ct.city_name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="ff"><label>PIN code <span class="req">*</span> </label><input formControlName="pin"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="mat-card">
+          <div class="card-head">
+            <h3>Complaint Details</h3>
+          </div>
+          <div class="cb">
+            <div class="r2">
+              <div class="ff">
+                <label>Category <span class="req">*</span></label>
+                <select formControlName="category">
+                  <option value="">Select Category</option>
+                  <option [value]="cat.categoryId" *ngFor="let cat of CategoryList">
+                    {{ cat.categoryName }}
+                  </option>
+                </select>
+              </div>
+              <div class="ff">
+                <label>Sub-category <span class="req">*</span></label>
+                <select formControlName="subCategory" [disabled]="SubCategoryList.length === 0">
+                  <option value="">Select Sub-category</option>
+                  <option [value]="sub.subCategoryId" *ngFor="let sub of SubCategoryList">
+                    {{ sub.subCategoryName }}
+                  </option>
+                </select>
+                <!-- Debug: remove after fix -->
+                <!-- <small style="color:lime">Total: {{ SubCategoryList.length }}</small> -->
+              </div>
+            </div>
+            <div class="r2">
+              <div class="ff"><label>Incident date <span class="req">*</span></label><input type="date"
+                  formControlName="incidentDate"></div>
+              <div class="ff"><label>Subject <span class="req">*</span> </label><input formControlName="subject"></div>
+            </div>
+            <div class="ff">
+              <label>Detailed description <span class="req">*</span> </label>
+              <textarea formControlName="description"></textarea>
+              <div class="error-msg"
+                *ngIf="complaintForm.get('description')?.touched && complaintForm.get('description')?.invalid">
+                Description must be at least 100 characters.
+              </div>
+            </div>
+            <div class="ff"><label>Previous complaint reference</label><input formControlName="prevRef"></div>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="card">
+          <div class="card-head">
+            <!-- <div class="card-icon icon-amber"><i class="fa-solid fa-cloud-arrow-up"></i></div> -->
+            <div>
+              <div class="card-title">Upload Documents</div>
+              <!-- <div class="card-sub">Attach proof and supporting files</div> -->
+            </div>
+          </div>
+          <div class="card-body">
+
+            <div class="ugrid">
+              <!-- Identity Proof -->
+              <!-- <label class="ubox" id="ubox-id" (click)="fileId.click()">
+                <div class="ubox-title">Identity proof <span class="req">*</span></div>
+                <div class="ubox-sub" id="ubox-id-name">
+                  {{ identityFileName || 'Aadhaar · PAN · Voter ID' }}
+                </div>
+                <div class="ubox-pill" [ngClass]="identityFile ? 'pill-success' : ''">
+                  {{ identityFile ? '✅ File selected' : 'PDF or image · max 2 MB' }}
+                </div>
+                <input type="file" #fileId accept=".pdf,image/*" style="display:none"
+                  (change)="onFileSelect($event, 'identity')">
+              </label> -->
+
+              <!-- Supporting Document -->
+              <!-- <label class="ubox" id="ubox-doc" (click)="fileDoc.click()">
+                <div class="ubox-title">Supporting document</div>
+                <div class="ubox-sub" id="ubox-doc-name">
+                  {{ supportFileName || 'Bills · receipts · screenshots' }}
+                </div>
+                <div class="ubox-pill" [ngClass]="supportFile ? 'pill-success' : ''">
+                  {{ supportFile ? '✅ File selected' : 'Optional · max 2 MB' }}
+                </div>
+                <input type="file" #fileDoc accept=".pdf,image/*" style="display:none"
+                  (change)="onFileSelect($event, 'support')">
+              </label> -->
+
+
+              <label class="ubox" id="ubox-id">
+                <div class="ubox-title">Identity proof <span class="req">*</span></div>
+                <div class="ubox-sub" id="ubox-id-name">
+                  {{ identityFileName || 'Aadhaar · PAN · Voter ID' }}
+                </div>
+                <div class="ubox-pill" [ngClass]="identityFile ? 'pill-success' : ''">
+                  {{ identityFile ? '✅ File selected' : 'PDF or image · max 2 MB' }}
+                </div>
+                <input type="file" #fileId accept=".pdf,image/*" style="display:none"
+                  (change)="onFileSelect($event, 'identity')">
+              </label>
+
+              <!-- Supporting Document -->
+              <label class="ubox" id="ubox-doc">
+                <div class="ubox-title">Supporting document</div>
+                <div class="ubox-sub" id="ubox-doc-name">
+                  {{ supportFileName || 'Bills · receipts · screenshots' }}
+                </div>
+                <div class="ubox-pill" [ngClass]="supportFile ? 'pill-success' : ''">
+                  {{ supportFile ? '✅ File selected' : 'Optional · max 2 MB' }}
+                </div>
+                <input type="file" #fileDoc accept=".pdf,image/*" style="display:none"
+                  (change)="onFileSelect($event, 'support')">
+              </label>
+
+
+
+            </div>
+
+            <label class="chk-row" id="chk-label">
+              <input type="checkbox" formControlName="declaration">
+              <span style="color: orange;">I declare that all information provided is accurate and complete.
+                False or misleading information may result in rejection of this complaint.</span>
+            </label>
+            <div class="error-msg"
+              *ngIf="complaintForm.get('declaration')?.touched && complaintForm.get('declaration')?.invalid">
+              You must accept the declaration to proceed.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mat-actions">
+          <button class="btn-submit" type="submit">Submit complaint</button>
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

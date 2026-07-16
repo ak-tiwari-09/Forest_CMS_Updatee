@@ -1,0 +1,265 @@
+/* 
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI',sans-serif;
+}
+
+.mat-toolbar{
+    background: linear-gradient(135deg,
+  #667db6,
+  #0082c8,
+  #0082c8,
+  #667db6,
+  #1cb5e0,
+  #000046
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;      
+  top: 0;               
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+.t-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-box{
+  width:34px;
+  height:34px;
+  background:rgba(255,255,255,0.2);
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.logo-box svg{
+  width:18px;
+  height:18px;
+  stroke:#fff;
+  fill:none;
+  stroke-width:2;
+}
+
+
+.app-name{
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+}
+
+.app-sub{
+  color:rgba(255,255,255,0.7);
+  font-size:10px;
+}
+
+
+.t-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+
+.nav-btn{
+  padding:5px 14px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  font-size:12px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.nav-btn:hover{
+  background:#fff;
+  color:#5C35D3;
+}
+
+
+.nav-btn.on{
+  background:#fff;
+  color:#5C35D3;
+  font-weight:600;
+}
+
+
+.avatar{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#FF6B6B,#FFD93D);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+body {
+  padding-top: 60px;   
+} 
+  */
+
+/* ── GOOGLE FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+ 
+/* ── Nav Bar Colors ── */
+.mat-toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  overflow: hidden;
+  isolation: isolate;
+  /* Soft blue gradient */
+  background: linear-gradient(135deg,
+    #1e3a5f, #2c5282, #3182ce,
+    #4299e1, #63b3ed, #2c5282, #1e3a5f);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 4px 24px rgba(30, 58, 95, 0.3);
+}
+
+.mat-toolbar::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(110deg,
+    rgba(255,255,255,0.10) 0%,
+    rgba(255,255,255,0.03) 40%,
+    rgba(255,255,255,0.08) 100%);
+  pointer-events: none;
+}
+
+.t-left, .nav-links-center, .t-right {
+  position: relative; z-index: 1;
+}
+
+.mat-toolbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 10%; right: 10%;
+  height: 1px; z-index: 2;
+  background: linear-gradient(90deg,
+    transparent, rgba(99, 179, 237, 0.5), transparent);
+  pointer-events: none;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Nav Links */
+.nav-links-center {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-link {
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  padding: 6px 12px; border-radius: 8px;
+  transition: background .18s, color .18s;
+  text-decoration: none;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+}
+
+/* Nav Buttons */
+.nav-btn {
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.9);
+  font-size: 12.5px; font-weight: 500;
+  cursor: pointer;
+  transition: background .18s, border-color .18s,
+    color .18s, transform .15s;
+}
+.nav-btn:hover {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Logo & App Name */
+.t-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  width: 34px;
+  height: 34px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-box svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+}
+
+
+.app-name{
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+}
+
+.app-sub {
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+}
+
+.t-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,131 @@
+<div class="login-wrap">
+
+  <!-- LEFT PANEL -->
+  <div class="ll">
+    <div class="ll-illo">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+    </div>
+
+    <!-- <h2>Forest Complaints Portal</h2> -->
+     <h2> ADMIN LOGIN </h2>
+    <p>Register, track and resolve your complaints with complete transparency</p>
+
+    <div class="fpills">
+      <div class="fp">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        <span>Real-time complaint tracking</span>
+      </div>
+
+      <div class="fp">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2" />
+        </svg>
+        <span>SMS & email notifications</span>
+      </div>
+
+      <div class="fp">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" />
+        </svg>
+        <span>Secure and confidential</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="lr">
+
+    <div class="lr-logo">
+      <div class="lb">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        </svg>
+      </div>
+   
+          <h2>Admin Login</h2>
+    </div>
+
+    <!-- <h3>Admin Login</h3> -->
+    <!-- <p>Sign in to continue to your account</p> -->
+
+    <!-- <form class="lform">
+
+      <div class="lff">
+        <label>Mobile number / Email</label>
+        <input type="text" placeholder="Enter mobile or email">
+      </div>
+
+      <div class="lff">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password">
+      </div>
+
+      <div class="lrow">
+        <label class="lchk">
+          <input type="checkbox"> Remember me
+        </label>
+        <span class="lfgt">Forgot password?</span>
+      </div>
+
+      <button type="submit" class="btn-login">Sign in</button>
+
+      <div class="ldiv"><span>or</span></div>
+
+      <button type="button" class="btn-otp">Login with OTP</button>
+
+    </form> -->
+
+    <form class="lform" (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+      <div class="lff">
+        <label>Mobile number / Email</label>
+        <input type="text" placeholder="Enter mobile or email" name="username" [(ngModel)]="username" required
+          #usernameRef="ngModel">
+      </div>
+
+      <div class="lff">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" name="password" [(ngModel)]="password" required
+          #passwordRef="ngModel">
+      </div>
+
+      <div class="lrow">
+        <label class="lchk">
+          <input type="checkbox"> Remember me
+        </label>
+        <span class="lfgt">Forgot password?</span>
+      </div>
+
+      <!-- ✅ Validation Message -->
+      <div ngIf="(usernameRef.invalid && usernameRef.touched) || (passwordRef.invalid && passwordRef.touched)"
+        style="color:red; margin-bottom:10px;">
+        Please enter username and password
+      </div>
+
+      <!-- ✅ API Error -->
+      <div ngIf="errorMsg" style="color:red; margin-bottom:10px;">
+        {{ errorMsg }}
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid || loading">
+
+        {{ loading ? 'Signing in...' : 'Sign in' }}
+      </button>
+
+      <div class="ldiv"><span>or</span></div>
+      <div class="nav-btn-group">
+        <button class="nav-btn" (click)="goToHome()">Home</button>
+        <button class="nav-btnl" (click)="goToUserLogin()">User Login</button>
+      </div>
+    </form>
+
+    <!-- <div class="lnote">
+      Don't have an account? <a>Register here</a>
+    </div> -->
+
+  </div>
+</div>

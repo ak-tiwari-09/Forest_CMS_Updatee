@@ -1,0 +1,344 @@
+<!-- ===== nEW 6PM ===== -->
+
+<!-- ===== NAV ===== -->
+<div class="mat-toolbar">
+  <div class="t-left">
+    <div class="logo-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="app-name">Forest Complaint Management</div>
+      <div class="app-sub">Smart Forest Grievance & Wildlife Complaint System</div>
+    </div>
+  </div>
+
+  <div class="nav-links-center">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#how-it-works" class="nav-link">How It Works</a>
+    <!-- <a href="#track" class="nav-link">Track Complaint</a> -->
+    <a href="#about" class="nav-link">About</a>
+  </div>
+
+  <div class="t-right">
+    <button class="nav-btn" (click)="goToAdd()">New Complaint</button>
+    <button class="nav-btn" (click)="goToLogin()">Admin Login</button>
+    <button class="nav-btn" (click)="goToLoginUser()">User Login</button>
+    <button class="nav-btn" (click)="goToLoginDepartment()">Department Login</button>
+  </div>
+</div>
+
+<!-- ===== PAGE WRAPPER ===== -->
+<div class="page-body">
+
+  <!-- Animated mesh background -->
+  <!-- <div class="mesh-bg">
+    <div class="mesh-orb m1"></div>
+    <div class="mesh-orb m2"></div>
+    <div class="mesh-orb m3"></div>
+    <div class="mesh-orb m4"></div>
+  </div> -->
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <!-- <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Smart Forest Grievance & Wildlife Complaint System
+      </div> -->
+      <h1 class="hero-h1">Protect the Forest.<br><em>Report</em> to the<br>Right Officials.</h1>
+      <p class="hero-p">User Login.</p>
+      <div class="hero-actions">
+        <button class="btn-hero" (click)="goToAdd()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          File a Complaint
+        </button>
+        <a href="#how-it-works" class="btn-soft">See How It Works →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">12k+</span>
+          <div class="hero-stat-label">Forest Complaints Resolved</div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">12  h</span>
+          <div class="hero-stat-label">Avg Response Time</div>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">98%</span>
+          <div class="hero-stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Glass Dashboard Card -->
+    <div class="hero-visual">
+      <div class="glass-card">
+        <div class="gc-header">
+          <div class="gc-icon">🌲</div>
+          <div>
+            <div class="gc-title">Live Dashboard</div>
+            <div class="gc-sub">Real-time overview</div>
+          </div>
+          <div class="live-pill"><span class="live-dot"></span>Live</div>
+        </div>
+
+        <div class="gc-stats">
+          <div class="gc-stat s-blue"><div class="gc-num">142</div><div class="gc-lbl">Total</div></div>
+          <div class="gc-stat s-amber"><div class="gc-num">23</div><div class="gc-lbl">Pending</div></div>
+          <div class="gc-stat s-mint"><div class="gc-num">109</div><div class="gc-lbl">Resolved</div></div>
+        </div>
+
+        <div class="gc-progress">
+          <div class="gc-prog-row"><span>Resolution</span><span class="gc-pct">76%</span></div>
+          <div class="gc-bar"><div class="gc-fill"></div></div>
+        </div>
+
+        <div class="gc-feed-title">Recent Activity</div>
+        <div class="gc-feed-item r1">
+          <span class="fd dot-mint"></span>
+          <span class="fd-name">Shreyas Patil</span>
+          <span class="fd-tag t-resolved">Resolved</span>
+          <span class="fd-time">5m</span>
+        </div>
+        <div class="gc-feed-item r2">
+          <span class="fd dot-sky"></span>
+          <span class="fd-name">Roshani Mehta</span>
+          <span class="fd-tag t-progress">In Progress</span>
+          <span class="fd-time">12m</span>
+        </div>
+        <div class="gc-feed-item r3">
+          <span class="fd dot-amber"></span>
+          <span class="fd-name">Rajesh Kumar</span>
+          <span class="fd-tag t-high">High Priority</span>
+          <span class="fd-time">18m</span>
+        </div>
+      </div>
+
+      <div class="float-pill p1">✅ 9 Cases Resolved Today</div>
+      <div class="float-pill p2">⚡ 1 High Priority</div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="section" id="features">
+    <div class="s-eyebrow">Platform Features</div>
+    <h2 class="s-title">Everything you need to manage<br>forest complaints efficiently</h2>
+    <p class="s-sub">A comprehensive system built for Forests and forest officials to ensure no illegal logging, poaching, or encroachment goes unnoticed.</p>
+
+    <div class="feat-grid">
+      <div class="feat-card fc-blue">
+        <div class="feat-ico">📝</div>
+        <h3>Easy Complaint Filing</h3>
+        <p>Report illegal logging, poaching, encroachment, or forest fires with personal details, category selection, supporting documents, and identity proof — all in one streamlined form.</p>
+      </div>
+      <div class="feat-card fc-mint">
+        <div class="feat-ico">📡</div>
+        <h3>Real-Time Tracking</h3>
+        <p>Track your forest complaint status live using your unique reference ID. Know exactly where your case stands at every step.</p>
+      </div>
+      <div class="feat-card fc-amber">
+        <div class="feat-ico">⚡</div>
+        <h3>Priority Escalation</h3>
+        <p>High, Medium, and Low priority flags ensure urgent cases like poaching or active fires are automatically escalated and resolved first by the forest department.</p>
+      </div>
+      <div class="feat-card fc-violet">
+        <div class="feat-ico">🛡️</div>
+        <h3>Secure Document Upload</h3>
+        <p>Attach identity proof (Aadhaar, PAN, Voter ID) and supporting evidence such as photos of encroachment or damage securely. Your data is encrypted and protected.</p>
+      </div>
+      <div class="feat-card fc-sky">
+        <div class="feat-ico">📊</div>
+        <h3>Forest Officer Dashboard</h3>
+        <p>Forest officials get a full overview — total complaints, in-progress cases, resolved count, and high-priority alerts at a glance.</p>
+      </div>
+      <div class="feat-card fc-peach">
+        <div class="feat-ico">🔔</div>
+        <h3>Status Notifications</h3>
+        <p>Forests receive real-time status updates whenever their forest complaint progresses, keeping them informed every step of the way.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <div class="steps-wrap" id="how-it-works">
+    <div class="section">
+      <div class="s-eyebrow">Process</div>
+      <h2 class="s-title">How Forest Complaint Management System Works</h2>
+      <p class="s-sub">From registration to resolution — a simple, transparent 4-step process.</p>
+
+      <div class="steps-row">
+        <div class="step-card active-step">
+          <div class="step-num">1</div>
+          <h4>Register Complaint</h4>
+          <p>Fill in your personal details, select the forest issue category, describe the incident and upload supporting documents.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card active-step" >
+          <div class="step-num">2</div>
+          <h4>Get Reference ID</h4>
+          <p>Receive a unique FC Reference ID instantly. Use this to track your complaint at any time.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card active-step">
+          <div class="step-num">3</div>
+          <h4>Forest Officer Review</h4>
+          <p>Our forest department reviews your complaint, assigns priority, and begins working on the resolution.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card active-step">
+          <div class="step-num">4</div>
+          <h4>Resolved & Notified</h4>
+          <p>Once resolved, your status is updated to Resolved and you are notified with the outcome.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== ROLES ===== -->
+  <section class="section" id="about">
+    <div class="s-eyebrow">Access Levels</div>
+    <h2 class="s-title">Built for Forests & Forest Officials</h2>
+    <p class="s-sub">Two tailored experiences — one powerful platform serving both the public and forest department officials.</p>
+
+    <div class="roles-row">
+      <div class="role-card role-Forest">
+        <div class="role-top">
+          <div class="role-icon Forest-icon">👤</div>
+          <div class="role-badge cb-badge">Forest</div>
+        </div>
+        <h3>For Forests</h3>
+        <p>Report, track, and follow up on forest-related complaints from anywhere. Protecting the forest starts with your voice — and now it's heard.</p>
+        <ul class="role-list">
+          <li><span class="rc cb">✓</span> Submit complaints with document proof</li>
+          <li><span class="rc cb">✓</span> Track complaint status in real-time</li>
+          <li><span class="rc cb">✓</span> View all your past complaint records</li>
+          <li><span class="rc cb">✓</span> Get notified on status changes</li>
+        </ul>
+        <button class="btn-role btn-role-blue" (click)="goToLoginUser()">Login as Forest →</button>
+      </div>
+
+      <div class="role-card role-admin">
+        <div class="role-top">
+          <div class="role-icon admin-icon">🛠️</div>
+          <div class="role-badge ab-badge">Admin</div>
+        </div>
+        <h3>For Forest Officials</h3>
+        <p>Manage, resolve, and monitor all forest complaints efficiently. Keep the department running with full oversight and control.</p>
+        <ul class="role-list">
+          <li><span class="rc ab">✓</span> View all complaints across Forests</li>
+          <li><span class="rc ab">✓</span> Update complaint status &amp; priority</li>
+          <li><span class="rc ab">✓</span> Filter and search by ID or name</li>
+          <li><span class="rc ab">✓</span> Access dashboard analytics &amp; reports</li>
+        </ul>
+        <button class="btn-role btn-role-green" (click)="goToLogin()">Login as Admin →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== TRACK ===== -->
+  <!-- <div class="track-wrap" id="track">
+    <div class="track-inner">
+      <div class="track-left">
+        <div class="s-eyebrow">Live Tracking</div>
+        <h2 class="s-title">Know where your<br>forest complaint stands</h2>
+        <p class="s-sub">Use your unique Reference ID to check real-time status — no login required.</p>
+
+        <div class="ref-pill">
+          <div class="ref-label">Sample Reference ID</div>
+          <div class="ref-id">FC-20260504-009</div>
+          <div class="ref-status"><span class="ref-dot"></span>Resolved · 04 May 2026</div>
+        </div>
+
+        <button class="btn-hero" (click)="goToTrack()">
+             <button class="btn-hero" > 
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Track Your Complaint
+        </button>
+      </div>
+
+      <div class="track-card">
+        <div class="tc-head">
+          <div>
+            <div class="tc-ref">FC-20260504-009</div>
+            <div class="tc-who">Shreyas Patil · Illegal Logging</div>
+          </div>
+          <span class="tc-pill">● Resolved</span>
+        </div>
+
+        <div class="tc-meta">
+          <div class="tc-m"><div class="tc-ml">Filed</div><div class="tc-mv">04 May 2026</div></div>
+          <div class="tc-m"><div class="tc-ml">Priority</div><div class="tc-mv">Low</div></div>
+          <div class="tc-m"><div class="tc-ml">Resolved</div><div class="tc-mv" style="color:#16a37f">04 May 2026</div></div>
+        </div>
+
+        <div class="tc-timeline">
+          <div class="tl-item">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-line"></div>
+            <div class="tl-info"><div class="tl-name">Complaint Submitted</div><div class="tl-t">04 May · 09:14 AM</div></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-line"></div>
+            <div class="tl-info"><div class="tl-name">Under Review by Forest Officer</div><div class="tl-t">04 May · 11:30 AM</div></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-line"></div>
+            <div class="tl-info"><div class="tl-name">Action Taken</div><div class="tl-t">04 May · 02:45 PM</div></div>
+          </div>
+          <div class="tl-item last">
+            <div class="tl-dot final">✓</div>
+            <div class="tl-info"><div class="tl-name" style="color:#16a37f;font-weight:700">Resolved</div><div class="tl-t">04 May · 05:00 PM</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- ===== STATS BAND ===== -->
+  <div class="stats-band">
+    <div class="stats-band-inner">
+      <div class="stats-band-item">
+        <div class="stats-band-num">12,400+</div>
+        <div class="stats-band-label">Forest Complaints Filed</div>
+      </div>
+      <div class="stats-band-item">
+        <div class="stats-band-num">10,900+</div>
+        <div class="stats-band-label">Resolved Cases</div>
+      </div>
+      <div class="stats-band-item">
+        <div class="stats-band-num">48 hrs</div>
+        <div class="stats-band-label">Avg Resolution Time</div>
+      </div>
+      <div class="stats-band-item">
+        <div class="stats-band-num">98%</div>
+        <div class="stats-band-label">Forest Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-glow"></div>
+      <h2>Spotted a forest issue?<br><br><br>Let's get it resolved.</h2>
+      <br>
+      <p>Join thousands of Forests who've used the Forest Complaint Management System to have illegal logging, poaching, and encroachment issues heard and resolved quickly by forest officials.</p>
+      <div class="cta-btns">
+        <button class="btn-hero" (click)="goToAdd()">File a Complaint Now →</button>
+        <button class="btn-soft" (click)="goToLogin()">Admin Login</button>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-body -->
+
+<app-footer></app-footer>
