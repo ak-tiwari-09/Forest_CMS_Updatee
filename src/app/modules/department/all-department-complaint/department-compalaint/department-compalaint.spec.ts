@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DepartmentCompalaint } from './department-compalaint';
+import { DepartmentComplaint } from './department-compalaint';
 
 describe('DepartmentCompalaint', () => {
-  let component: DepartmentCompalaint;
-  let fixture: ComponentFixture<DepartmentCompalaint>;
+  let component: DepartmentComplaint;
+  let fixture: ComponentFixture<DepartmentComplaint>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DepartmentCompalaint]
+      imports: [DepartmentComplaint]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DepartmentCompalaint);
+    fixture = TestBed.createComponent(DepartmentComplaint);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

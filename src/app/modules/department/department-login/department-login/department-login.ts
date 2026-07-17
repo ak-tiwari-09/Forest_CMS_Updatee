@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../../../auth.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../../../../shared/user.service';
 import { Navbar } from '../../../../navbar/navbar';
+import { DepartmentComplaint } from '../../all-department-complaint/department-compalaint/department-compalaint';
 
 @Component({
   selector: 'app-department-login',
-  imports: [FormsModule, Navbar],
+  imports: [CommonModule, FormsModule, DepartmentComplaint],
   templateUrl: './department-login.html',
   styleUrl: './department-login.css',
 })
@@ -62,9 +64,10 @@ export class DepartmentLogin {
     });
   }
 
-   goToHo() {
-    this.router.navigate(['/department-complaint']);
-  }
+goToDepartment() {
+     localStorage.setItem('userName', 'test-department');
+     this.router.navigate(['/department-complaint']);
+   }
 
   goToHome() {
     this.router.navigate(['/home']);

@@ -62,6 +62,9 @@
                 <h1>Department Complaint Records</h1>
                 <p>Review, process and update public complaints</p>
             </div>
+            <button class="btn-action" (click)="GetDepartmentComplaintDetails()" [disabled]="isLoading">
+                {{ isLoading ? 'Loading...' : 'Load Complaints' }}
+            </button>
         </div>
 
         <!-- STATUS FILTER TABS -->

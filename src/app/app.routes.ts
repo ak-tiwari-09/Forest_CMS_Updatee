@@ -22,4 +22,4 @@ export const routes: Routes = [
   { path: 'admin/all-complaint', component: AllComplaint },
   { path: 'user/my-complaint',component: MyComplaints}
   
-];
+]; 
