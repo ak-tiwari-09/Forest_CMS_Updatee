@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';  // ← add RouterModule
 
 @Component({
-  selector: 'app-dashbroad',
+  selector: 'dashbroad',
   standalone: true,
  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './dashbroad.html',

@@ -1,69 +1,483 @@
 /* ============================================
+   PAGE LAYOUT
+============================================ */
+
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* ============================================
+   SIDEBAR
+============================================ */
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    180deg,
+    #2A7FC5 0%,
+    #0082c8 50%,
+    #0f1e4a 100%
+  );
+
+  background-size: 400% 400%;
+  animation: gradientMove 5s ease infinite;
+
+  box-shadow: 2px 0 20px rgba(0,0,0,0.18);
+
+  color: white;
+}
+
+
+/* BRAND */
+
+.sb-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.toggle-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: white;
+}
+
+
+.sb-title {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+.sb-sub {
+  color: rgba(255,255,255,.45);
+  font-size: 10px;
+}
+
+
+/* MENU */
+
+.sb-nav {
+  padding: 16px 12px;
+  flex: 1;
+}
+
+
+.sb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  margin-bottom: 4px;
+}
+
+
+.sb-item svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+
+.sb-item:hover,
+.sb-item.active {
+  background: rgba(255,255,255,.15);
+  color: white;
+}
+
+
+/* FOOTER */
+
+.sb-footer {
+  padding: 16px 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+
+.logout-btn {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255,99,99,.15);
+
+  border: 1px solid rgba(255,99,99,.25);
+
+  color: #ff8080;
+
+  cursor: pointer;
+}
+
+
+.logout-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+
+
+
+/* ============================================
+   MAIN CONTENT
+============================================ */
+
+
+.main-content {
+  flex: 1;
+
+  height: 100vh;
+
+  padding: 28px;
+
+  overflow-y: auto;
+
+  box-sizing: border-box;
+
+  font-family: 'Inter','Segoe UI',sans-serif;
+
+
+  background: #F5F7FF;
+
+  background-image:
+    radial-gradient(
+      ellipse 60% 40% at 0% 0%,
+      rgba(199,210,254,.7),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 100% 0%,
+      rgba(196,232,255,.6),
+      transparent 55%
+    );
+}
+
+
+
+/* ============================================
+   PAGE HEADER
+============================================ */
+
+
+.page-title-section {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+
+
+.page-title-section h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: #1e1b4b;
+}
+
+
+.page-title-section p {
+  margin-top: 5px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+}
+
+
+/* ADD BUTTON */
+
+
+.add-btn {
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #6366f1
+  );
+
+  color: white;
+
+  border: none;
+
+  padding: 11px 20px;
+
+  border-radius: 14px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease;
+}
+
+
+.add-btn:hover {
+  transform: translateY(-1px);
+}
+
+
+
+
+/* ============================================
+   TABLE CARD
+============================================ */
+
+
+.form-card {
+  background: rgba(255,255,255,.72);
+
+  border: 1px solid rgba(255,255,255,.9);
+
+  border-radius: 22px;
+
+  padding: 26px;
+
+  backdrop-filter: blur(20px);
+
+
+  box-shadow:
+    0 8px 40px rgba(139,92,246,.08);
+}
+
+
+
+/* CARD HEADER */
+
+
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-bottom: 18px;
+
+  margin-bottom: 22px;
+
+  border-bottom: 1px solid rgba(167,139,250,.18);
+}
+
+
+
+.card-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+
+  color: #1e1b4b;
+}
+
+
+.card-header p {
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  color: #94a3b8;
+}
+
+
+
+.header-icon {
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #ede9fe;
+}
+
+
+
+
+
+/* ============================================
    DEPARTMENT TABLE
 ============================================ */
 
 
 table {
+  width: 100%;
 
-    width:100%;
-    border-collapse:collapse;
-
+  border-collapse: collapse;
 }
 
 
 
-th {
+thead th {
+  background: #ede9fe;
 
-    background:#ede9fe;
+  color: #1e1b4b;
 
-    color:#1e1b4b;
+  padding: 13px;
 
-    padding:12px;
+  text-align: left;
 
-    text-align:left;
+  font-size: 13px;
 
-    font-size:13px;
-
+  font-weight: 700;
 }
 
 
 
-td {
+tbody td {
+  padding: 13px;
 
-    padding:12px;
+  border-bottom: 1px solid #e2e8f0;
 
-    border-bottom:1px solid #e2e8f0;
+  font-size: 13px;
 
-    font-size:13px;
-
-    color:#475569;
-
+  color: #475569;
 }
 
 
 
-tr:hover {
-
-    background:rgba(124,58,237,.05);
-
+tbody tr:hover {
+  background: rgba(124,58,237,.05);
 }
 
+
+
+/* STATUS */
 
 
 .active {
+  color: #16a34a;
 
-    color:#16a34a;
+  background: #dcfce7;
 
-    font-weight:700;
+  padding: 5px 12px;
 
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
 }
 
 
 
 .inactive {
+  color: #dc2626;
 
-    color:#dc2626;
+  background: #fee2e2;
 
-    font-weight:700;
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+
+
+/* ============================================
+   ANIMATION
+============================================ */
+
+
+@keyframes gradientMove {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+
+}
+
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+
+@media (max-width: 900px) {
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-content {
+    height: auto;
+    padding: 16px;
+  }
+
+  .page-title-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
 
 }

@@ -1,612 +1,147 @@
-<div class="layout">
+<!-- HEADER -->
+<div class="page-title-section">
+  <div>
+    <h1>Add New Department</h1>
+    <p>Create and manage departments for Forest Complaint Management System</p>
+  </div>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
+  <button class="btn-new" routerLink="/admin/all-department">← Back to Department</button>
+</div>
 
-        <div class="sb-brand">
-
-            <button class="toggle-btn">
-                <svg viewBox="0 0 24 24">
-                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-                </svg>
-            </button>
-
-            <div>
-                <div class="sb-title">
-                    Forest Complaint<br>
-                    Management
-                </div>
-
-                <div class="sb-sub">
-                    Smart Public System
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="sb-nav">
-
-            <div class="sb-item" routerLink="/dashboard">
-
-                <span>📊</span>
-                Dashboard
-
-            </div>
-
-
-            <div class="sb-item">
-
-                <span>💬</span>
-                Complaints
-
-            </div>
-
-
-            <div class="sb-item">
-
-                <span>👤</span>
-                Users
-
-            </div>
-
-
-            <div class="sb-item active">
-
-                <span>🏢</span>
-                Department
-
-            </div>
-
-
-        </div>
-
-
-        <div class="sb-footer">
-
-            <button class="logout-btn">
-
-                🚪 Logout
-
-            </button>
-
-        </div>
-
-
+<div class="user-layout">
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <div class="card-header">
+      <div>
+        <h2>Department Information</h2>
+        <p>Fill details to create a new department</p>
+      </div>
+      <div class="header-icon">🏢</div>
     </div>
 
-
-
-
-    <!-- MAIN CONTENT -->
-
-    <div class="main-content">
-
-
-        <!-- HEADER -->
-
-        <div class="page-title-section">
-
-            <div>
-
-                <h1>
-                    Add New Department
-                </h1>
-
-
-                <p>
-                    Create and manage departments for Forest Complaint Management System
-                </p>
-
-
-            </div>
-
-
-            <button class="btn-new">
-                ← Back to Department
-            </button>
-
-
+    <form>
+      <div class="form-grid">
+        <div class="form-field">
+          <label> Department Name <span>*</span> </label>
+          <input
+            type="text"
+            placeholder="Enter department name"
+            [(ngModel)]="department.DepartmentName"
+            name="DepartmentName"
+          />
         </div>
 
-
-
-
-
-        <div class="user-layout">
-
-
-            <!-- FORM CARD -->
-
-            <div class="form-card">
-
-
-                <div class="card-header">
-
-
-                    <div>
-
-                        <h2>
-                            Department Information
-                        </h2>
-
-
-                        <p>
-                            Fill details to create a new department
-                        </p>
-
-
-                    </div>
-
-
-                    <div class="header-icon">
-                        🏢
-                    </div>
-
-
-                </div>
-
-
-
-
-
-                <form>
-
-
-                    <div class="form-grid">
-
-
-
-                        <div class="form-field">
-
-                            <label>
-                                Department Name <span>*</span>
-                            </label>
-
-
-                            <input type="text" placeholder="Enter department name"
-                                [(ngModel)]="department.DepartmentName" name="DepartmentName">
-
-
-                        </div>
-
-
-
-
-
-                        <div class="form-field">
-
-
-                            <label>
-                                Department Code <span>*</span>
-                            </label>
-
-
-                            <input type="text" placeholder="Enter code" [(ngModel)]="department.DepartmentCode"
-                                name="DepartmentCode">
-
-
-                        </div>
-
-
-
-
-
-                        <div class="form-field">
-
-
-                            <label>
-                                Jurisdiction Type
-                            </label>
-
-
-                            <select [(ngModel)]="department.JurisdictionType" name="JurisdictionType">
-
-
-                                <option value="State">
-                                    State
-                                </option>
-
-
-                                <option value="District">
-                                    District
-                                </option>
-
-
-                            </select>
-
-
-                        </div>
-
-
-
-
-
-                        <div class="form-field">
-
-
-                            <label>
-                                Contact Email
-                            </label>
-
-
-                            <input type="email" placeholder="Enter email" [(ngModel)]="department.ContactEmail"
-                                name="ContactEmail">
-
-
-                        </div>
-
-
-
-
-
-                        <div class="form-field">
-
-
-                            <label>
-                                Contact Phone
-                            </label>
-
-
-                            <input type="text" placeholder="Enter phone" [(ngModel)]="department.ContactPhone"
-                                name="ContactPhone">
-
-
-                        </div>
-
-
-
-
-
-                        <div class="form-field full">
-
-
-                            <label>
-                                Status
-                            </label>
-
-
-
-                            <div class="status-options">
-
-
-                                <label class="radio-item">
-
-                                    <input type="radio" [(ngModel)]="department.IsActive" [value]="true" name="status">
-
-
-                                    Active
-
-                                </label>
-
-
-
-
-
-                                <label class="radio-item">
-
-                                    <input type="radio" [(ngModel)]="department.IsActive" [value]="false" name="status">
-
-
-                                    Inactive
-
-                                </label>
-
-
-                            </div>
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
-
-
-                    <div class="info-note">
-
-
-                        <div class="note-icon">
-                            ⓘ
-                        </div>
-
-
-                        <p>
-                            Department information will be used for user assignment and complaint management.
-                        </p>
-
-
-                    </div>
-
-
-
-
-
-                    <div class="form-actions">
-
-
-                        <button type="button" class="btn-cancel">
-
-                            Cancel
-
-                        </button>
-
-
-
-                        <button type="button" class="btn-save" >
-
-                            + Save Department
-
-                        </button>
-
-
-                    </div>
-
-
-
-                </form>
-
-
-
-            </div>
-
-
-
-
-
-            <!-- INFORMATION CARD -->
-
-
-            <div class="information-card">
-
-
-                <div class="card-header">
-
-
-                    <div>
-
-                        <h2>
-                            Information
-                        </h2>
-
-
-                        <p>
-                            Department guidelines
-                        </p>
-
-                    </div>
-
-
-                    <div class="header-icon">
-                        ℹ️
-                    </div>
-
-
-                </div>
-
-
-
-
-
-                <div class="info-box">
-
-                    <div class="info-icon purple">
-                        🏢
-                    </div>
-
-
-                    <div>
-
-                        <h3>
-                            Department
-                        </h3>
-
-
-                        <p>
-                            Each department represents a working wing in forest management.
-                        </p>
-
-
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="info-box">
-
-                    <div class="info-icon green">
-                        ✔
-                    </div>
-
-
-                    <div>
-
-                        <h3>
-                            Active Status
-                        </h3>
-
-
-                        <p>
-                            Active departments can be assigned to users.
-                        </p>
-
-
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="info-box">
-
-                    <div class="info-icon orange">
-                        📌
-                    </div>
-
-
-                    <div>
-
-                        <h3>
-                            Department Code
-                        </h3>
-
-
-                        <p>
-                            Code should be unique for every department.
-                        </p>
-
-
-                    </div>
-
-                </div>
-
-
-
-            </div>
-
-
-
+        <div class="form-field">
+          <label> Department Code <span>*</span> </label>
+          <input
+            type="text"
+            placeholder="Enter code"
+            [(ngModel)]="department.DepartmentCode"
+            name="DepartmentCode"
+          />
         </div>
 
-
-
-
-
-
-        <!-- DEPARTMENT TABLE -->
-
-
-        <div class="form-card department-table-card">
-
-
-            <div class="card-header">
-
-                <div>
-
-                    <h2>
-                        Department List
-                    </h2>
-
-                    <p>
-                        Existing departments
-                    </p>
-
-                </div>
-
-
-                <div class="header-icon">
-                    📋
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <table>
-
-
-                <thead>
-
-                    <tr>
-
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Code</th>
-                        <th>Jurisdiction</th>
-                        <th>Email</th>
-                        <th>Status</th>
-
-
-                    </tr>
-
-
-                </thead>
-
-
-
-
-                <tbody>
-
-
-                    <tr *ngFor="let dept of departmentList">
-
-
-                        <td>
-                            {{dept.DepartmentID}}
-                        </td>
-
-
-                        <td>
-                            {{dept.DepartmentName}}
-                        </td>
-
-
-                        <td>
-                            {{dept.DepartmentCode}}
-                        </td>
-
-
-                        <td>
-                            {{dept.JurisdictionType}}
-                        </td>
-
-
-                        <td>
-                            {{dept.ContactEmail || '-'}}
-                        </td>
-
-
-
-                        <td>
-
-                            <span class="active" *ngIf="dept.IsActive">
-
-                                Active
-
-                            </span>
-
-
-                            <span class="inactive" *ngIf="!dept.IsActive">
-
-                                Inactive
-
-                            </span>
-
-
-                        </td>
-
-
-
-                    </tr>
-
-
-                </tbody>
-
-
-
-            </table>
-
-
-
+        <div class="form-field">
+          <label> Jurisdiction Type </label>
+          <select
+            [(ngModel)]="department.JurisdictionType"
+            name="JurisdictionType"
+          >
+            <option value="State">State</option>
+            <option value="District">District</option>
+          </select>
         </div>
 
+        <div class="form-field">
+          <label> Contact Email </label>
+          <input
+            type="email"
+            placeholder="Enter email"
+            [(ngModel)]="department.ContactEmail"
+            name="ContactEmail"
+          />
+        </div>
 
+        <div class="form-field">
+          <label> Contact Phone </label>
+          <input
+            type="text"
+            placeholder="Enter phone"
+            [(ngModel)]="department.ContactPhone"
+            name="ContactPhone"
+          />
+        </div>
 
+        <div class="form-field full">
+          <label> Status </label>
+          <div class="status-options">
+            <label class="radio-item">
+              <input
+                type="radio"
+                [(ngModel)]="department.IsActive"
+                [value]="true"
+                name="status"
+              />
+              Active
+            </label>
 
+            <label class="radio-item">
+              <input
+                type="radio"
+                [(ngModel)]="department.IsActive"
+                [value]="false"
+                name="status"
+              />
+              Inactive
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-note">
+        <div class="note-icon">ⓘ</div>
+        <p>Department information will be used for user assignment and complaint management.</p>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-cancel" routerLink="/admin/all-department">Cancel</button>
+        <button type="button" class="btn-save">+ Save Department</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- INFORMATION CARD -->
+  <div class="information-card">
+    <div class="card-header">
+      <div>
+        <h2>Information</h2>
+        <p>Department guidelines</p>
+      </div>
+      <div class="header-icon">ℹ️</div>
     </div>
 
+    <div class="info-box">
+      <div class="info-icon purple">🏢</div>
+      <div>
+        <h3>Department</h3>
+        <p>Each department represents a working wing in forest management.</p>
+      </div>
+    </div>
 
+    <div class="info-box">
+      <div class="info-icon green">✔</div>
+      <div>
+        <h3>Active Status</h3>
+        <p>Active departments can be assigned to users.</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-icon orange">📌</div>
+      <div>
+        <h3>Department Code</h3>
+        <p>Code should be unique for every department.</p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -9,6 +9,11 @@ import { DepartmentLogin } from './modules/department/department-login/departmen
 import { DepartmentComplaint } from './modules/department/all-department-complaint/department-compalaint/department-compalaint';
 import { App } from './app';
 import { Home } from './home/home';
+import { User } from './modules/admin/user/user';
+import { AllUser } from './modules/admin/all-user/all-user';
+import { Department } from './modules/admin/department/department';
+import { AllDepartment } from './modules/admin/all-department/all-department';
+import { AdminLayout } from './shared/layouts/admin-layout/admin-layout';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,8 +23,22 @@ export const routes: Routes = [
   { path: 'user-login', component: UserLogin},
   { path: 'department-login', component: DepartmentLogin },
    { path: 'department-complaint', component: DepartmentComplaint },
-  { path: 'dashboard', component: Dashbroad },
-  { path: 'admin/all-complaint', component: AllComplaint },
-  { path: 'user/my-complaint',component: MyComplaints}
+  // { path: 'dashboard', component: Dashbroad },
+  // { path: 'admin/all-complaint', component: AllComplaint },
+  //  { path: 'admin/all-user', component: AllUser },
+  //  { path: 'admin/user', component: User },
+
+   {path: 'admin',
+    component: AdminLayout,
+    children: [{ path: 'all-department', component: AllDepartment },
+      { path: 'all-user', component: AllUser },
+      { path: 'user', component: User },
+      { path: 'dashboard', component: Dashbroad },
+       { path: 'all-complaint', component: AllComplaint },
+         { path: 'my-complaint',component: MyComplaints},
+     { path: 'department', component: Department },]},
+
+  // { path: 'user/my-complaint',component: MyComplaints},
+  // { path: 'admin/all-department', component: AllDepartment }
   
 ]; 
