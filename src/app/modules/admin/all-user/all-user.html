@@ -1,0 +1,128 @@
+<div class="layout">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+
+        <div class="sb-brand">
+            <button class="toggle-btn" (click)="toggleSidebar()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+                </svg>
+            </button>
+            <div class="sb-brand-text">
+                <div class="sb-title">Forest Complaint<br>Management</div>
+                <div class="sb-sub">Smart Public System</div>
+            </div>
+        </div>
+
+    <ul class="menu">
+      <li routerLink="/dashboard">
+        📊 <span>Dashboard</span>
+      </li>
+
+      <li routerLink="/admin/all-complaint">
+        📄 <span>Complaints</span>
+      </li>
+
+      <li class="active" routerLink="/admin/all-user">
+        👤 <span>Users</span>
+      </li>
+    </ul>
+
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <div class="header">
+      <div>
+        <h1>Users</h1>
+        <p>Manage all users</p>
+      </div>
+
+      <button class="add-btn" routerLink="/admin/user">
+        + Add User
+      </button>
+    </div>
+
+    <div class="card">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Role</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>Rohit Sharma</td>
+
+            <td>rohit@gmail.com</td>
+
+            <td>7775939380</td>
+
+            <td><span class="role admin">Admin</span></td>
+
+            <td>Forest Conservation</td>
+
+            <td><span class="status active">Active</span></td>
+
+            <td>
+
+              <button>Edit</button>
+
+              <button>Delete</button>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Priya Verma</td>
+
+            <td>priya@gmail.com</td>
+
+            <td>9876543210</td>
+
+            <td><span class="role officer">Officer</span></td>
+
+            <td>Wildlife Protection</td>
+
+            <td><span class="status inactive">Inactive</span></td>
+
+            <td>
+
+              <button>Edit</button>
+
+              <button>Delete</button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

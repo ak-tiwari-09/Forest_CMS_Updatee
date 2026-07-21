@@ -31,6 +31,7 @@ export class AllComplaint implements OnInit {
 
   updatedStatus: any = '';
   updatedPriority: any = '';
+  // updatedepartment: Number = '';
   isUpdating = false;
   updateSuccess = false;
 
@@ -43,6 +44,7 @@ export class AllComplaint implements OnInit {
 
   statusList:      any[] = [];
   priorityList:      any[] = [];
+  departmentList:      any[] = [];
 
   activeTab: string = 'personal';
 
@@ -56,7 +58,8 @@ export class AllComplaint implements OnInit {
 
 
 
-  departmentList: any[] = [];
+
+
   updatedDepartment: number | null = null;
 
   ngOnInit(): void {
@@ -92,7 +95,7 @@ export class AllComplaint implements OnInit {
       x.cP_Name?.toLowerCase().includes(s) ||
       x.cP_RefNo?.toLowerCase().includes(s) ||
       x.categoryName?.toLowerCase().includes(s)
-    );
+    )
 
     this.currentPage = 1;
     this.totalPages = Math.ceil(this.filteredComplaints.length / this.pageSize);
@@ -297,7 +300,8 @@ updateComplaint() {
     const payload = {
         CP_RefNo:    this.selectedComplaint.cP_RefNo,
         Status_id:   Number(this.updatedStatus),
-        Priority_id: Number(this.updatedPriority)
+        Priority_id: Number(this.updatedPriority),
+        departmentID: Number(this.updatedDepartment)
     };
 
     this.userService.UpdateStatusAndPriority(payload).subscribe(
@@ -305,6 +309,12 @@ updateComplaint() {
         (error: any)    => { this.isUpdating = false; console.error('Update error:', error); }
     );
 }
+
+
+
+
+
+
 
 openComplaintDetails(refNo: string) {
     this.userService.GetComplaintDetailsById(refNo).subscribe(

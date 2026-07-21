@@ -1,0 +1,192 @@
+<div class="main-content">
+
+
+    <!-- HEADER -->
+
+    <div class="page-title-section">
+
+
+        <div>
+
+            <h1>
+                Department Master
+            </h1>
+
+
+            <p>
+                Manage all forest departments
+            </p>
+
+        </div>
+
+
+
+        <button 
+        class="btn-new"
+        (click)="addDepartment()">
+
+            + Add Department
+
+        </button>
+
+
+    </div>
+
+
+
+
+
+    <!-- TABLE CARD -->
+
+    <div class="form-card">
+
+
+        <div class="card-header">
+
+
+            <div>
+
+                <h2>
+                    Department List
+                </h2>
+
+
+                <p>
+                    All registered departments
+                </p>
+
+
+            </div>
+
+
+
+            <div class="header-icon">
+                🏢
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+
+                    <th>
+                        Department Name
+                    </th>
+
+
+                    <th>
+                        Code
+                    </th>
+
+
+                    <th>
+                        Jurisdiction
+                    </th>
+
+
+                    <th>
+                        Contact Email
+                    </th>
+
+
+                    <th>
+                        Contact Phone
+                    </th>
+
+
+                    <th>
+                        Status
+                    </th>
+
+
+                </tr>
+
+
+            </thead>
+
+
+
+
+            <tbody>
+
+
+                <tr *ngFor="let dept of departmentList">
+
+
+                    <td>
+                        {{dept.DepartmentID}}
+                    </td>
+
+
+                    <td>
+                        {{dept.DepartmentName}}
+                    </td>
+
+
+                    <td>
+                        {{dept.DepartmentCode}}
+                    </td>
+
+
+                    <td>
+                        {{dept.JurisdictionType}}
+                    </td>
+
+
+                    <td>
+                        {{dept.ContactEmail || '-'}}
+                    </td>
+
+
+                    <td>
+                        {{dept.ContactPhone || '-'}}
+                    </td>
+
+
+
+                    <td>
+
+
+                        <span 
+                        [class.active]="dept.IsActive"
+                        [class.inactive]="!dept.IsActive">
+
+
+                            {{dept.IsActive ? 'Active' : 'Inactive'}}
+
+
+                        </span>
+
+
+                    </td>
+
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+
+    </div>
+
+
+
+</div>

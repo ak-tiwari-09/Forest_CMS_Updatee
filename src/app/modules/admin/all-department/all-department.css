@@ -1,0 +1,69 @@
+/* ============================================
+   DEPARTMENT TABLE
+============================================ */
+
+
+table {
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+
+
+th {
+
+    background:#ede9fe;
+
+    color:#1e1b4b;
+
+    padding:12px;
+
+    text-align:left;
+
+    font-size:13px;
+
+}
+
+
+
+td {
+
+    padding:12px;
+
+    border-bottom:1px solid #e2e8f0;
+
+    font-size:13px;
+
+    color:#475569;
+
+}
+
+
+
+tr:hover {
+
+    background:rgba(124,58,237,.05);
+
+}
+
+
+
+.active {
+
+    color:#16a34a;
+
+    font-weight:700;
+
+}
+
+
+
+.inactive {
+
+    color:#dc2626;
+
+    font-weight:700;
+
+}

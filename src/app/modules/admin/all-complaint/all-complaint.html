@@ -26,6 +26,15 @@
                 </svg>
                 <span class="sb-label">Complaints</span>
             </div>
+
+            <div class="sb-item " routerLink="/admin/all-user">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                </svg>
+                <span class="sb-label">User</span>
+            </div>
+
+
             <!-- <div class="sb-item">
                 <svg viewBox="0 0 24 24">
                     <path
@@ -403,6 +412,18 @@
                             </option>
                         </select>
                     </div>
+
+
+<!-- 
+                    <div class="update-field">
+                        <label class="update-label">Change department</label>
+                        <select [(ngModel)]="updatedDepartment" class="detail-select">
+                            <option value="">Select Department</option>
+                            <option [value]="d.departmentID" *ngFor="let d of departmentList">
+                                {{ d.DepartmentName }}
+                            </option>
+                        </select>
+                    </div> -->
 
 
                     <div class="update-field">

@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';  // ← add RouterModule
 
 @Component({
   selector: 'app-dashbroad',
   standalone: true,
-  imports: [RouterModule],  // ← add here
+ imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './dashbroad.html',
   styleUrl: './dashbroad.css',
 })

@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fb;
+}
+
+/* Layout */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 260px;
+    background: #0083C8;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo h2 {
+    margin-bottom: 5px;
+}
+
+.logo p {
+    font-size: 13px;
+    color: #ddd;
+}
+
+.menu {
+    list-style: none;
+    margin-top: 40px;
+    flex: 1;
+}
+
+.menu li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.menu li:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.menu li.active {
+    /* background: #d3ddf3; */
+      background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+.menu span {
+    margin-left: 10px;
+}
+
+.sidebar-collapsed .sb-brand-text {
+  opacity: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+
+/* ===== TOGGLE BUTTON ===== */
+.toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+/* ===== BRAND ===== */
+.sb-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logout-btn {
+    border: none;
+    background: crimson;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: darkred;
+}
+
+/* Content */
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.add-btn {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Card */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    padding: 20px;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #f1f5f9;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background: #f9fafb;
+}
+
+/* Role */
+
+.role {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.admin {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.officer {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* Status */
+
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.active {
+    background: #dcfce7;
+    color: green;
+}
+
+.inactive {
+    background: #fee2e2;
+    color: red;
+}
+
+/* Buttons */
+
+td button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+td button:first-child {
+    background: orange;
+    color: white;
+}
+
+td button:last-child {
+    background: red;
+    color: white;
+}
