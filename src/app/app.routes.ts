@@ -22,6 +22,7 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'user-login', component: UserLogin},
   { path: 'department-login', component: DepartmentLogin },
+  { path: 'my-complaint',component: MyComplaints},
    { path: 'department-complaint', component: DepartmentComplaint },
   // { path: 'dashboard', component: Dashbroad },
   // { path: 'admin/all-complaint', component: AllComplaint },
@@ -35,7 +36,7 @@ export const routes: Routes = [
       { path: 'user', component: User },
       { path: 'dashboard', component: Dashbroad },
        { path: 'all-complaint', component: AllComplaint },
-         { path: 'my-complaint',component: MyComplaints},
+        //  { path: 'my-complaint',component: MyComplaints},
      { path: 'department', component: Department },]},
 
   // { path: 'user/my-complaint',component: MyComplaints},

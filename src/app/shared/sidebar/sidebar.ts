@@ -29,9 +29,17 @@ export class Sidebar {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  logout() {
-    // TODO: clear auth/session storage here if you have any, e.g.
-    // localStorage.removeItem('token');
-    this.router.navigate(['/login-register']);
+  // logout() {
+  //   // TODO: clear auth/session storage here if you have any, e.g.
+  //   // localStorage.removeItem('token');
+  //   this.router.navigate(['/login-register']);
+  // }
+
+
+
+
+    logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

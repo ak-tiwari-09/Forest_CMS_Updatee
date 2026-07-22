@@ -148,7 +148,7 @@ export class UserLogin {
             // ✅ Store userName as a plain string (NOT JSON.stringify of entire res)
             localStorage.setItem('userName', res.userName);
 
-            this.router.navigate(['user/my-complaint']);
+            this.router.navigate(['/my-complaint']);
           },
           error: (err: any) => {
             console.error(err);

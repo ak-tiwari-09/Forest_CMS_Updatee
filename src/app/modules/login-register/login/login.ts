@@ -81,7 +81,7 @@ export class Login {
               console.log('Login Success:', res);
               localStorage.setItem('access_token', res.access_token);
               localStorage.setItem('user', JSON.stringify(res));
-              this.router.navigate(['/dashboard']);
+              this.router.navigate(['/admin/dashboard']);
             },
             error: (err: any) => {
               console.error(err);
