@@ -1,148 +1,49 @@
-<div class="layout">
-  <!-- ================= SIDEBAR ================= -->
-
-  <!-- <div class="sidebar">
-    <div class="sb-brand">
-      <button class="toggle-btn">
-        <svg viewBox="0 0 24 24">
-          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-        </svg>
-      </button>
-
-      <div class="sb-brand-text">
-        <div class="sb-title">
-          Forest Complaint<br />
-          Management
-        </div>
-
-        <div class="sb-sub">Smart Public System</div>
-      </div>
+<!-- DEPARTMENT LIST TABLE -->
+<div class="form-card" style="margin-top: 24px;">
+  <div class="card-header">
+    <div>
+      <h2>All Departments</h2>
+      <p>List of departments currently in the system</p>
     </div>
-
-    <div class="sb-nav">
-      <div class="sb-item" routerLink="/dashboard">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
-          />
-        </svg>
-
-        <span> Dashboard </span>
-      </div>
-
-      <div class="sb-item" routerLink="/admin/all-complaint">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
-          />
-        </svg>
-
-        <span> Complaints </span>
-      </div>
-
-      <div class="sb-item" routerLink="/admin/user">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-          />
-        </svg>
-
-        <span> User </span>
-      </div>
-
-      <div class="sb-item active" routerLink="/admin/department">
-        <span>🏢</span>
-
-        <span> Department </span>
-      </div>
-    </div>
-
-    <div class="sb-footer">
-      <button class="logout-btn">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
-          />
-        </svg>
-
-        Logout
-      </button>
-    </div>
-  </div> -->
-  <!-- closes .sidebar -->
-
-  <!-- ================= MAIN CONTENT ================= -->
-
-  <div class="main-content">
-    <div class="page-title-section">
-      <div>
-        <h1>Department Master</h1>
-
-        <p>Manage forest departments</p>
-      </div>
-      <button class="add-btn" routerLink="/admin/department">
-        + Add Department
-      </button>
-    </div>
-
-    <div class="form-card">
-      <div class="card-header">
-        <div>
-          <h2>Department List</h2>
-
-          <p>All registered departments</p>
-        </div>
-
-        <div class="header-icon">🏢</div>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-
-            <th>Department Name</th>
-
-            <th>Code</th>
-
-            <th>Jurisdiction</th>
-
-            <th>Email</th>
-
-            <th>Phone</th>
-
-            <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr *ngFor="let dept of departmentList">
-            <td>{{dept.DepartmentID}}</td>
-
-            <td>{{dept.DepartmentName}}</td>
-
-            <td>{{dept.DepartmentCode}}</td>
-
-            <td>{{dept.JurisdictionType}}</td>
-
-            <td>{{dept.ContactEmail || '-'}}</td>
-
-            <td>{{dept.ContactPhone || '-'}}</td>
-
-            <td>
-              <span
-                [class.active]="dept.IsActive"
-                [class.inactive]="!dept.IsActive"
-              >
-                {{dept.IsActive ? 'Active':'Inactive'}}
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- closes .form-card -->
+    <button type="button" class="btn-primary" (click)="addDepartment()">
+      + Add Department
+    </button>
   </div>
-  <!-- closes .main-content -->
+
+  <div *ngIf="isLoading" style="text-align:center; padding:16px;">Loading...</div>
+  <div *ngIf="errorMsg" style="text-align:center; color:red; padding:16px;">{{ errorMsg }}</div>
+
+  <table class="department-table" *ngIf="!isLoading && !errorMsg">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Code</th>
+        <!-- <th>Jurisdiction</th> -->
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="departmentList.length === 0">
+        <td colspan="8" style="text-align:center;">No departments found</td>
+      </tr>
+      <tr *ngFor="let dept of departmentList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ dept.departmentName }}</td>
+        <td>{{ dept.departmentCode }}</td>
+        <!-- <td>{{ dept.jurisdictionType || '-' }}</td> -->
+        <td>{{ dept.contactEmail || '-' }}</td>
+        <td>{{ dept.contactPhone || '-' }}</td>
+        <td>
+          <span [class]="dept.isActive ? 'status-active' : 'status-inactive'">
+            {{ dept.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        <td>{{ dept.createdDate | date:'dd-MM-yyyy hh:mm a' }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<!-- closes .layout -->

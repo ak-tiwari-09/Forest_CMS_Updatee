@@ -7,6 +7,7 @@ import { UserLogin } from './modules/user/user-login/user-login';
 import { MyComplaints } from './modules/user/my-complaints/my-complaints';
 import { DepartmentLogin } from './modules/department/department-login/department-login/department-login';
 import { DepartmentComplaint } from './modules/department/all-department-complaint/department-compalaint/department-compalaint';
+
 import { App } from './app';
 import { Home } from './home/home';
 import { User } from './modules/admin/user/user';

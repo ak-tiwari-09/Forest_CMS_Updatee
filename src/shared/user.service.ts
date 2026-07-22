@@ -107,8 +107,11 @@ export class UserService {
         );
 
     }
+        // ... existing imports and code ...
 
-
+        AddDepartment(model: any) {
+        return this.http.post(this.rootUrl + '/api/Complaint/AddDepartment', model, this.httpOptions);
+        }
 
     UpdateStatusAndPriority(payload: any) {
         // debugger;

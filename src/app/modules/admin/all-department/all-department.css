@@ -340,6 +340,45 @@
 }
 
 
+/* HEADER ACTION BUTTON (Add Department) */
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+
+  color: white;
+
+  border: none;
+
+  padding: 11px 20px;
+
+  border-radius: 14px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(124,58,237,.28);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(124,58,237,.35);
+}
+
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
 
 
 
@@ -348,15 +387,19 @@
 ============================================ */
 
 
-table {
+.department-table {
   width: 100%;
 
   border-collapse: collapse;
+
+  border-radius: 14px;
+
+  overflow: hidden;
 }
 
 
 
-thead th {
+.department-table thead th {
   background: #ede9fe;
 
   color: #1e1b4b;
@@ -368,11 +411,13 @@ thead th {
   font-size: 13px;
 
   font-weight: 700;
+
+  white-space: nowrap;
 }
 
 
 
-tbody td {
+.department-table tbody td {
   padding: 13px;
 
   border-bottom: 1px solid #e2e8f0;
@@ -384,16 +429,22 @@ tbody td {
 
 
 
-tbody tr:hover {
+.department-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+
+.department-table tbody tr:hover {
   background: rgba(124,58,237,.05);
 }
 
 
 
-/* STATUS */
+/* STATUS BADGES */
 
 
-.active {
+.status-active {
   color: #16a34a;
 
   background: #dcfce7;
@@ -405,11 +456,13 @@ tbody tr:hover {
   font-size: 12px;
 
   font-weight: 700;
+
+  white-space: nowrap;
 }
 
 
 
-.inactive {
+.status-inactive {
   color: #dc2626;
 
   background: #fee2e2;
@@ -421,6 +474,8 @@ tbody tr:hover {
   font-size: 12px;
 
   font-weight: 700;
+
+  white-space: nowrap;
 }
 
 
@@ -475,7 +530,18 @@ tbody tr:hover {
     gap: 15px;
   }
 
-  table {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .department-table {
     display: block;
     overflow-x: auto;
   }
