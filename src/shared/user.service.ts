@@ -115,4 +115,6 @@ export class UserService {
     return this.http.post(this.rootUrl + '/api/Complaint/UpdateStatusAndPriority', payload, this.httpOptions);
     }
 
+    
+
 }
