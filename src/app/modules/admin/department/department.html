@@ -19,15 +19,18 @@
       <div class="header-icon">🏢</div>
     </div>
 
-    <form>
+    <div *ngIf="successMsg" class="alert-success">{{ successMsg }}</div>
+    <div *ngIf="errorMsg" class="alert-error">{{ errorMsg }}</div>
+
+    <form (ngSubmit)="addDepartment()">
       <div class="form-grid">
         <div class="form-field">
           <label> Department Name <span>*</span> </label>
           <input
             type="text"
             placeholder="Enter department name"
-            [(ngModel)]="department.DepartmentName"
-            name="DepartmentName"
+            [(ngModel)]="department.departmentName"
+            name="departmentName"
           />
         </div>
 
@@ -36,20 +39,9 @@
           <input
             type="text"
             placeholder="Enter code"
-            [(ngModel)]="department.DepartmentCode"
-            name="DepartmentCode"
+            [(ngModel)]="department.departmentCode"
+            name="departmentCode"
           />
-        </div>
-
-        <div class="form-field">
-          <label> Jurisdiction Type </label>
-          <select
-            [(ngModel)]="department.JurisdictionType"
-            name="JurisdictionType"
-          >
-            <option value="State">State</option>
-            <option value="District">District</option>
-          </select>
         </div>
 
         <div class="form-field">
@@ -57,8 +49,8 @@
           <input
             type="email"
             placeholder="Enter email"
-            [(ngModel)]="department.ContactEmail"
-            name="ContactEmail"
+            [(ngModel)]="department.contactEmail"
+            name="contactEmail"
           />
         </div>
 
@@ -67,8 +59,8 @@
           <input
             type="text"
             placeholder="Enter phone"
-            [(ngModel)]="department.ContactPhone"
-            name="ContactPhone"
+            [(ngModel)]="department.contactPhone"
+            name="contactPhone"
           />
         </div>
 
@@ -78,7 +70,7 @@
             <label class="radio-item">
               <input
                 type="radio"
-                [(ngModel)]="department.IsActive"
+                [(ngModel)]="department.isActive"
                 [value]="true"
                 name="status"
               />
@@ -88,7 +80,7 @@
             <label class="radio-item">
               <input
                 type="radio"
-                [(ngModel)]="department.IsActive"
+                [(ngModel)]="department.isActive"
                 [value]="false"
                 name="status"
               />
@@ -105,7 +97,9 @@
 
       <div class="form-actions">
         <button type="button" class="btn-cancel" routerLink="/admin/all-department">Cancel</button>
-        <button type="button" class="btn-save">+ Save Department</button>
+        <button type="submit" class="btn-save" [disabled]="isSaving">
+          {{ isSaving ? 'Saving...' : '+ Save Department' }}
+        </button>
       </div>
     </form>
   </div>
