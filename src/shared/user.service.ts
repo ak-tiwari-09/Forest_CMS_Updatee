@@ -53,7 +53,7 @@ export class UserService {
     }
 
     GetAllComplaints() {
-         // debugger;
+        // debugger;
         return this.http.get(this.rootUrl + '/api/Complaint/GetAllComplaintDetails', this.httpOptions);
     }
 
@@ -87,7 +87,7 @@ export class UserService {
             this.httpOptions
         );
     }
- 
+
     GetAllStatus() {
         //  // debugger;
         return this.http.get(this.rootUrl + '/api/Complaint/GetAllStatus', this.httpOptions);
@@ -96,7 +96,7 @@ export class UserService {
     GetAllPriority() {
         //  // debugger;
         return this.http.get(this.rootUrl + '/api/Complaint/GetAllPriority', this.httpOptions);
-    } 
+    }
 
 
     GetAllDepartment() {
@@ -111,10 +111,13 @@ export class UserService {
 
 
     UpdateStatusAndPriority(payload: any) {
-         // debugger;
-    return this.http.post(this.rootUrl + '/api/Complaint/UpdateStatusAndPriority', payload, this.httpOptions);
+        // debugger;
+        return this.http.post(this.rootUrl + '/api/Complaint/UpdateStatusAndPriority', payload, this.httpOptions);
     }
 
-    
+    GetAllUserDetails() {
+        debugger;
+        return this.http.get<any[]>(this.rootUrl + '/api/Complaint/GetAllUserDetails',this.httpOptions);
+    }
 
 }
