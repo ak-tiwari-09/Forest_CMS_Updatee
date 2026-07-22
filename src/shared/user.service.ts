@@ -120,4 +120,12 @@ export class UserService {
         return this.http.get<any[]>(this.rootUrl + '/api/Complaint/GetAllUserDetails',this.httpOptions);
     }
 
+    InsertDepartmentUser(payload: any) {
+        return this.http.post(
+            this.rootUrl + '/api/Complaint/InsertDepartmentUser',
+            payload,
+            this.httpOptions  // ✅ application/json
+        );
+    }
+
 }

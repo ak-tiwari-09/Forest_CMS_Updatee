@@ -1,269 +1,368 @@
 <!-- ===== PAGE WRAPPER ===== -->
 <div class="layout">
-  <!-- ===== SIDEBAR ===== -->
-  <!-- <div class="sidebar">
-    <div class="sb-brand">
-      <button class="toggle-btn" (click)="toggleSidebar()">
-        <svg viewBox="0 0 24 24">
-          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-        </svg>
-      </button>
-
-      <div class="sb-brand-text">
-        <div class="sb-title">
-          Forest Complaint<br />
-          Management
-        </div>
-        <div class="sb-sub">Smart Public System</div>
-      </div>
-    </div>
-
-    <div class="sb-nav">
-      <div class="sb-item" routerLink="/dashboard">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
-          />
-        </svg>
-
-        <span class="sb-label"> Dashboard </span>
-      </div>
-
-      <div class="sb-item" routerLink="/admin/all-complaint">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
-          />
-        </svg>
-
-        <span class="sb-label"> Complaints </span>
-      </div>
-
-      <div class="sb-item active" routerLink="/admin/user">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-          />
-        </svg>
-
-        <span class="sb-label"> User </span>
-      </div>
-
-
-                <div class="sb-item " routerLink="/admin/all-department">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-          />
-        </svg>
-
-        <span class="sb-label"> Department </span>
-      </div>
-    </div>
-
-
-    <div class="sb-footer">
-      <button class="logout-btn" (click)="logout()">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
-          />
-        </svg>
-
-        <span class="sb-label"> Logout </span>
-      </button>
-    </div>
-  </div> -->
 
   <!-- ===== MAIN CONTENT ===== -->
 
   <div class="main-content">
-    <!-- HEADER -->
 
+    <!-- HEADER -->
     <div class="page-title-section">
+
       <div>
         <h1>Add New User</h1>
-
         <p>Create a new user account for Forest Complaint Management System</p>
       </div>
 
-      <button class="btn-new" routerLink="/admin/user">← Back to Users</button>
+      <button class="btn-new" routerLink="/admin/user">
+        ← Back to Users
+      </button>
+
     </div>
 
     <!-- FORM + INFORMATION -->
 
     <div class="user-layout">
-      <!-- FORM CARD -->
+
+      <!-- ================= FORM CARD ================= -->
 
       <div class="form-card">
+
         <div class="card-header">
+
           <div>
             <h2>User Information</h2>
-
             <p>Fill all required details to create a new user</p>
           </div>
 
-          <div class="header-icon">👤</div>
-        </div>
-
-        <form>
-          <div class="form-grid">
-            <div class="form-field">
-              <label> Full Name <span>*</span> </label>
-
-              <input type="text" placeholder="Enter full name" />
-            </div>
-
-            <div class="form-field">
-              <label> Email Address <span>*</span> </label>
-
-              <input type="email" placeholder="Enter email address" />
-            </div>
-
-            <div class="form-field">
-              <label> Mobile Number <span>*</span> </label>
-
-              <input type="text" placeholder="Enter mobile number" />
-            </div>
-
-            <div class="form-field">
-              <label> Role <span>*</span> </label>
-
-              <select>
-                <option>Select role</option>
-
-                <option>Admin</option>
-
-                <option>Officer</option>
-
-                <option>Field Staff</option>
-              </select>
-            </div>
-
-            <div class="form-field full">
-              <label> Department <span>*</span> </label>
-
-              <select>
-                <option>Select department</option>
-
-                <option>Forest Conservation</option>
-
-                <option>Wildlife Protection</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label> Password <span>*</span> </label>
-
-              <div class="password-box">
-                <input type="password" placeholder="Enter password" />
-
-                <span> 👁 </span>
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label> Confirm Password <span>*</span> </label>
-
-              <div class="password-box">
-                <input type="password" placeholder="Confirm password" />
-
-                <span> 👁 </span>
-              </div>
-            </div>
-
-            <div class="form-field full">
-              <label> Status <span>*</span> </label>
-
-              <div class="status-options">
-                <label class="radio-item">
-                  <input type="radio" name="status" checked />
-
-                  Active
-                </label>
-
-                <label class="radio-item">
-                  <input type="radio" name="status" />
-
-                  Inactive
-                </label>
-              </div>
-            </div>
+          <div class="header-icon">
+            👤
           </div>
 
+        </div>
+
+        <form #userForm="ngForm" (ngSubmit)="saveUser()">
+
+          <div class="form-grid">
+
+            <!-- Full Name -->
+
+            <div class="form-field">
+
+              <label>
+                Full Name
+                <span>*</span>
+              </label>
+
+              <input type="text" name="fullName" [(ngModel)]="user.FullName" required placeholder="Enter full name">
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="form-field">
+
+              <label>
+                Email Address
+                <span>*</span>
+              </label>
+
+              <input type="email" name="email" [(ngModel)]="user.Email" required placeholder="Enter email address">
+
+            </div>
+
+            <!-- Mobile -->
+
+            <div class="form-field">
+
+              <label>
+                Mobile Number
+                <span>*</span>
+              </label>
+
+              <input type="text" name="mobile" maxlength="10" [(ngModel)]="user.Mobile" required
+                placeholder="Enter mobile number">
+
+            </div>
+
+            <!-- Role -->
+
+            <!-- <div class="form-field">
+
+              <label>
+                Role
+                <span>*</span>
+              </label>
+
+              <select name="roleId" [(ngModel)]="user.RoleId" required>
+
+                <option value="">
+                  Select Role
+                </option>
+
+                <option *ngFor="let role of roleList" [value]="role.id">
+
+                  {{ role.name }}
+
+                </option>
+
+              </select>
+
+            </div> -->
+
+            <!-- Role -->
+
+<div class="form-field">
+
+  <label>
+    Role
+    <span>*</span>
+  </label>
+
+  <select name="roleId" [(ngModel)]="user.RoleId" required>
+
+    <option value="">Select Role</option>
+
+    <option value="4e5d9e7c-8ad1-4204-91eb-b93d482cba38">
+      Department User
+    </option>
+
+  </select>
+
+</div>
+
+            <!-- Department -->
+
+            <div class="form-field full">
+
+              <label>
+                Department
+                <span>*</span>
+              </label>
+
+              <select name="departmentID" [(ngModel)]="user.DepartmentID" required>
+
+                <option value="">
+                  Select Department
+                </option>
+
+                <option *ngFor="let dept of departmentList" [value]="dept.departmentID">
+
+                  {{ dept.departmentName }}
+
+                </option>
+
+              </select>
+
+            </div>
+            <!-- Password -->
+
+            <div class="form-field">
+
+              <label>
+                Password
+                <span>*</span>
+              </label>
+
+              <div class="password-box">
+
+                <input type="password" name="password" [(ngModel)]="user.Password" required minlength="8"
+                  placeholder="Enter password">
+
+                <span>👁</span>
+
+              </div>
+
+            </div>
+
+            <!-- Confirm Password -->
+
+            <div class="form-field">
+
+              <label>
+                Confirm Password
+                <span>*</span>
+              </label>
+
+              <div class="password-box">
+
+                <input type="password" name="confirmPassword" [(ngModel)]="user.ConfirmPassword" required minlength="8"
+                  placeholder="Confirm password">
+
+                <span>👁</span>
+
+              </div>
+
+            </div>
+
+            <!-- Status -->
+
+            <div class="form-field full">
+
+              <label>
+                Status
+                <span>*</span>
+              </label>
+
+              <div class="status-options">
+
+                <label class="radio-item">
+
+                  <input type="radio" name="status" [value]="true" [(ngModel)]="user.IsActive">
+
+                  Active
+
+                </label>
+
+                <label class="radio-item">
+
+                  <input type="radio" name="status" [value]="false" [(ngModel)]="user.IsActive">
+
+                  Inactive
+
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Information Note -->
+
           <div class="info-note">
-            <div class="note-icon">ⓘ</div>
+
+            <div class="note-icon">
+              ⓘ
+            </div>
 
             <p>
               User will be able to login and access the system according to
               their assigned role and department.
             </p>
+
           </div>
+
+          <!-- Buttons -->
 
           <div class="form-actions">
-            <button type="button" class="btn-cancel">Cancel</button>
 
-            <button type="submit" class="btn-save">+ Save User</button>
+            <button type="button" class="btn-cancel" routerLink="/admin/user">
+
+              Cancel
+
+            </button>
+
+            <button type="submit" class="btn-save" [disabled]="!userForm.valid">
+
+              + Save User
+
+            </button>
+
           </div>
+
         </form>
+
       </div>
 
-      <!-- INFORMATION CARD -->
+      <!-- ================= INFORMATION CARD ================= -->
 
       <div class="information-card">
+
         <div class="card-header">
+
           <div>
+
             <h2>Information</h2>
 
             <p>Important details while creating users</p>
+
           </div>
 
-          <div class="header-icon">ℹ️</div>
+          <div class="header-icon">
+            ℹ️
+          </div>
+
         </div>
 
         <div class="info-box">
-          <div class="info-icon purple">👤</div>
+
+          <div class="info-icon purple">
+            👤
+          </div>
 
           <div>
+
             <h3>User Role</h3>
 
             <p>
               Select the correct role. Roles define user permissions and access
               level.
             </p>
+
           </div>
+
         </div>
 
         <div class="info-box">
-          <div class="info-icon green">🏢</div>
+
+          <div class="info-icon green">
+            🏢
+          </div>
 
           <div>
+
             <h3>Department</h3>
 
-            <p>Assign the user to a department.</p>
+            <p>
+              Assign the user to the appropriate department responsible for
+              complaint handling.
+            </p>
+
           </div>
+
         </div>
 
         <div class="info-box">
-          <div class="info-icon orange">🔒</div>
+
+          <div class="info-icon orange">
+            🔒
+          </div>
 
           <div>
+
             <h3>Password</h3>
 
-            <p>Password should contain minimum 8 characters.</p>
+            <p>
+              Password should contain at least 8 characters. Encourage users to
+              choose a strong password.
+            </p>
+
           </div>
+
         </div>
 
         <div class="info-box">
-          <div class="info-icon blue">🛡</div>
+
+          <div class="info-icon blue">
+            🛡
+          </div>
 
           <div>
+
             <h3>Status</h3>
 
-            <p>Active users can login.</p>
+            <p>
+              Active users can log in immediately. Inactive users will not be able
+              to access the system until activated.
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
 </div>
