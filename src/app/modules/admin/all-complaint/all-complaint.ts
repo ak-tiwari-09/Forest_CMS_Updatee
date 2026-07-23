@@ -31,6 +31,7 @@ export class AllComplaint implements OnInit {
 
   updatedStatus: any = '';
   updatedPriority: any = '';
+  remark: string = '';
   // updatedepartment: Number = '';
   isUpdating = false;
   updateSuccess = false;
@@ -273,6 +274,8 @@ openModal(complaint: any) {
     this.updateSuccess = false;
     this.updatedStatus   = complaint.cP_StatusId ?? '';    // adjust field name
     this.updatedPriority = complaint.cP_PriorityId ?? '';  // adjust field name
+    //  this.Remark = complaint.cP_PriorityId ?? '';  // adjust field name
+
     this.GetAllStatus();
     this.GetAllPriority();
 }
@@ -301,7 +304,8 @@ updateComplaint() {
         CP_RefNo:    this.selectedComplaint.cP_RefNo,
         Status_id:   Number(this.updatedStatus),
         Priority_id: Number(this.updatedPriority),
-        departmentID: Number(this.updatedDepartment)
+        departmentID: Number(this.updatedDepartment),
+        Remarks: String(this.remark)
     };
 
     this.userService.UpdateStatusAndPriority(payload).subscribe(

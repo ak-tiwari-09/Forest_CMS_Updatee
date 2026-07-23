@@ -295,7 +295,7 @@
                 📎 Documents
             </button>
             <button class="tab-btn" [class.active]="activeTab === 'update'" (click)="activeTab = 'update'">
-                ⚙️ Update
+                ⚙️ Assign
             </button>
         </div>
 
@@ -422,6 +422,8 @@
                     </div>
 
 
+
+
 <!-- 
                     <div class="update-field">
                         <label class="update-label">Change department</label>
@@ -454,6 +456,16 @@
                         </select>
                     </div>
 
+
+<div class="update-field">
+    <label class="update-label">Remark</label>
+    <input
+        type="text"
+        [(ngModel)]="remark"
+        class="detail-input"
+        placeholder="Enter Remark"
+        style="width: 400px; height: 45px;" />
+</div>
 
 
                 </div>
