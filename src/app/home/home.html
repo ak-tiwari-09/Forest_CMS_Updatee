@@ -1,7 +1,7 @@
 <!-- ===== nEW 6PM ===== -->
 
 <!-- ===== NAV ===== -->
-<div class="mat-toolbar">
+<!-- <div class="mat-toolbar">
   <div class="t-left">
     <div class="logo-box">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -17,7 +17,7 @@
   <div class="nav-links-center">
     <a href="#features" class="nav-link">Features</a>
     <a href="#how-it-works" class="nav-link">How It Works</a>
-    <!-- <a href="#track" class="nav-link">Track Complaint</a> -->
+    
     <a href="#about" class="nav-link">About</a>
   </div>
 
@@ -26,6 +26,34 @@
     <button class="nav-btn" (click)="goToLogin()">Admin Login</button>
     <button class="nav-btn" (click)="goToLoginUser()">User Login</button>
     <button class="nav-btn" (click)="goToLoginDepartment()">Department Login</button>
+  </div>
+</div> -->
+
+
+<div class="mat-toolbar">
+  <div class="t-left">
+    <div class="logo-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="app-name">Forest Complaint Management</div>
+      <div class="app-sub">Smart Forest Grievance & Wildlife Complaint System</div>
+    </div>
+  </div>
+
+  <div class="nav-links-center">
+    <a href="#about" class="nav-link">About</a>
+
+    <a href="javascript:void(0)" class="nav-link" role="button" (click)="goToLogin()">Admin Login</a>
+    <a href="javascript:void(0)" class="nav-link" role="button" (click)="goToLoginUser()">User Login</a>
+    <a href="javascript:void(0)" class="nav-link" role="button" (click)="goToLoginDepartment()">Department Login</a>
+
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#how-it-works" class="nav-link">How It Works</a>
+
+    <a href="javascript:void(0)" class="nav-link" role="button" (click)="goToAdd()">New Complaint</a>
   </div>
 </div>
 
@@ -139,9 +167,9 @@
         <p>Track your forest complaint status live using your unique reference ID. Know exactly where your case stands at every step.</p>
       </div>
       <div class="feat-card fc-amber">
-        <div class="feat-ico">⚡</div>
-        <h3>Priority Escalation</h3>
-        <p>High, Medium, and Low priority flags ensure urgent cases like poaching or active fires are automatically escalated and resolved first by the forest department.</p>
+        <div class="feat-ico">✅</div>
+        <h3>Complaint Verification</h3>
+        <p>Every complaint is reviewed and verified by authorized forest officials before action is initiated, ensuring authenticity and reducing false reports.</p>
       </div>
       <div class="feat-card fc-violet">
         <div class="feat-ico">🛡️</div>
@@ -167,7 +195,7 @@
     <div class="section">
       <div class="s-eyebrow">Process</div>
       <h2 class="s-title">How Forest Complaint Management System Works</h2>
-      <p class="s-sub">From registration to resolution — a simple, transparent 4-step process.</p>
+      <p class="s-sub">From registration to resolution — a simple, transparent 5-step process.</p>
 
       <div class="steps-row">
         <div class="step-card active-step">
@@ -185,11 +213,17 @@
         <div class="step-card active-step">
           <div class="step-num">3</div>
           <h4>Forest Officer Review</h4>
-          <p>Our forest department reviews your complaint, assigns priority, and begins working on the resolution.</p>
+          <p>Our forest Office reviews your complaint, assigns priority, and begins working on the resolution.</p>
         </div>
         <div class="step-arrow">→</div>
         <div class="step-card active-step">
           <div class="step-num">4</div>
+          <h4>Department Office Review</h4>
+          <p>Our forest department reviews your complaint, assigns priority, and begins working on the resolution.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card active-step">
+          <div class="step-num">5</div>
           <h4>Resolved & Notified</h4>
           <p>Once resolved, your status is updated to Resolved and you are notified with the outcome.</p>
         </div>
