@@ -26,44 +26,101 @@ export class DepartmentLogin {
     private userService: UserService
   ) {}
 
-  onLoginDepartment() {
+  // onLoginDepartment() {
 
-    if (!this.username || !this.password) {
-      this.errorMsg = 'Username and Password required';
-      return;
-    }
+  //   if (!this.username || !this.password) {
+  //     this.errorMsg = 'Username and Password required';
+  //     return;
+  //   }
 
-    this.loading = true;
-    this.errorMsg = '';
+  //   this.loading = true;
+  //   this.errorMsg = '';
 
-    const payload = {
-      username: this.username,
-      password: this.password
-    };
+  //   const payload = {
+  //     username: this.username,
+  //     password: this.password
+  //   };
 
-    this.authService.login(payload).subscribe({
-      next: (res: any) => {
+  //   this.authService.login(payload).subscribe({
+  //     next: (res: any) => {
 
-        console.log('Department Login Success:', res);
+  //       console.log('Department Login Success:', res);
 
-        localStorage.setItem('access_token', res.access_token);
-        localStorage.setItem('user', JSON.stringify(res));
-        localStorage.setItem('userName', res.userName);
+  //       localStorage.setItem('access_token', res.access_token);
+  //       localStorage.setItem('user', JSON.stringify(res));
+  //       localStorage.setItem('userName', res.userName);
 
-        this.loading = false;
+  //       this.loading = false;
 
-        // Navigate to Department Complaint page
-        this.router.navigate(['/department-complaint']);
+  //       // Navigate to Department Complaint page
+  //       this.router.navigate(['/department-complaint']);
+  //     },
+
+  //     error: (err: any) => {
+  //       console.error(err);
+  //       this.errorMsg = 'Invalid username or password';
+  //       this.loading = false;
+  //     }
+  //   });
+  // }
+
+ onLoginDepartment() {
+  this.userService.CheckUserTypeDepartment(this.username)
+    .subscribe({
+      next: (checkRes: any) => {
+        if (checkRes.message !== 'success') {
+          this.errorMsg = 'Access denied. Not a Deparment user.';
+          return;
+        }
+
+        if (!this.username || !this.password) {
+          this.errorMsg = 'Username and Password required';
+          return;
+        }
+
+        this.loading = true;
+        this.errorMsg = '';
+
+        const payload = {
+          username: this.username,
+          password: this.password
+        };
+
+        this.authService.login(payload).subscribe({
+          next: (res: any) => {
+            console.log('Login Success:', res);
+
+            // ✅ Store access_token
+            localStorage.setItem('access_token', res.access_token);
+
+            // ✅ Store full user object as JSON string
+            localStorage.setItem('user', JSON.stringify(res));
+
+            // ✅ Store userName as a plain string (NOT JSON.stringify of entire res)
+            localStorage.setItem('userName', res.userName);
+
+            this.router.navigate(['/department-complaint']);
+          },
+          error: (err: any) => {
+            console.error(err);
+            this.errorMsg = 'Invalid credentials';
+            this.loading = false;
+          }
+        });
       },
-
       error: (err: any) => {
         console.error(err);
-        this.errorMsg = 'Invalid username or password';
-        this.loading = false;
+        this.errorMsg = 'User not authorized or server error.';
       }
     });
-  }
+}
 
+
+
+
+
+
+  
 goToDepartment() {
      localStorage.setItem('userName', 'test-department');
      this.router.navigate(['/department-complaint']);

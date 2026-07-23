@@ -131,4 +131,30 @@ export class UserService {
         );
     }
 
+
+    CheckUserTypeDepartment(userName: string) {
+        return this.http.get<any>(
+            this.rootUrl + '/api/Complaint/GetDepartmentDetailsBy/?userName=' + userName,
+            this.httpOptions
+        );
+    }
+
+//     GetAllComplaintDetailsbyDepartment(userId: string, roleId: string, departmentID: number) {
+//   return this.http.get(
+//     `${this.rootUrl}/GetAllComplaintDetailsbyDepartment/${userId}/${roleId}/${departmentID}`
+//   );
+// }
+
+
+GetAllComplaintDetailsbyDepartment(
+  userId: string,
+  roleId: string,
+  departmentID: number
+) {
+  return this.http.get<any[]>(
+    `${this.rootUrl}/api/Complaint/GetAllComplaintDetailsbyDepartment/${userId}/${roleId}/${departmentID}`,
+    this.httpOptions
+  );
+}
+
 }
