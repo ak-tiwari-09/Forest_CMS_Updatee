@@ -1,153 +1,314 @@
-<div class="db-wrap" [class.sidebar-collapsed]="isCollapsed">
-    <!-- <div class="sidebar">
-        <div class="sb-brand">
-            <button class="toggle-btn" (click)="toggleSidebar()">
-                <svg viewBox="0 0 24 24">
-                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-                </svg>
-            </button>
-            <div class="sb-brand-text">
-                <div class="sb-title">Forest Complaint<br>Management</div>
-                <div class="sb-sub">Smart Public System</div>
-            </div>
-        </div>
-        <div class="sb-nav">
-            <div class="sb-item active" routerLink="/dashboard">
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
-                </svg>
-                <span class="sb-label">Dashboard</span>
-            </div>
-            <div class="sb-item" routerLink="/admin/all-complaint">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-                </svg>
-                <span class="sb-label">Complaints</span>
-            </div>
-
-            <div class="sb-item " routerLink="/admin/all-user">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-                </svg>
-                <span class="sb-label">User</span>
-            </div>
-
-
-
-            <div class="sb-item " routerLink="/admin/all-department">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-                </svg>
-                <span class="sb-label">Department</span>
-            </div> -->
-            <!-- <div class="sb-item">
-                <svg viewBox="0 0 24 24">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                </svg>
-                <span class="sb-label">Users</span>
-            </div>
-            <div class="sb-item">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-                </svg>
-                <span class="sb-label">Reports</span>
-            </div> -->
-        <!-- </div>
-        <div class="sb-footer">
-            <button class="logout-btn" (click)="logout()">
-                <svg viewBox="0 0 24 24">
-                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
-                </svg>
-                <span class="sb-label">Logout</span>
-            </button>
-        </div>
-    </div> -->
+<!-- <div class="db-wrap">
 
     <div class="main">
+
         <div class="topbar">
             <div class="topbar-left">
                 <h2>Welcome back, {{ user?.firstName }}</h2>
                 <p>Here's what's happening with complaints today</p>
             </div>
             <div class="topbar-right">
-                <!-- <button class="new-btn">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-                    </svg>
-                    New Complaint
-                </button> -->
                 <div class="avatar">{{ user?.firstName?.[0] }}{{ user?.lastName?.[0] }}</div>
+                <button class="logout-btn" (click)="logout()" title="Logout">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                    </svg>
+                </button>
             </div>
         </div>
+
         <div class="content">
-            <div class="user-card">
-                <div class="user-left">
-                    <div class="user-avatar">{{ user?.firstName?.[0] }}{{ user?.lastName?.[0] }}</div>
-                    <div>
-                        <div class="user-name">{{ user?.firstName }} {{ user?.lastName }}</div>
+            <div class="feature-grid">
+
+                <div class="feature-card tone-violet">
+                    <div class="feature-header">
+                        <span class="feature-icon icon-violet">
+                            <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2a4 4 0 100-8 4 4 0 000 8z"/></svg>
+                        </span>
+                        <span class="feature-title">Your profile</span>
+                    </div>
+                    <p class="feature-desc">Everything about your account, kept in one clear place.</p>
+
+                    <div class="feature-mock">
+                        <div class="mock-greeting">Hello {{ user?.firstName }} {{ user?.lastName }}!</div>
                         <span class="user-role">{{ user?.roleName }}</span>
+
+                        <div class="mock-rows">
+                            <div class="mock-row">
+                                <span class="mock-row-label">Email</span>
+                                <span class="mock-row-value">{{ user?.emailId }}</span>
+                            </div>
+                            <div class="mock-row">
+                                <span class="mock-row-label">Phone</span>
+                                <span class="mock-row-value">{{ user?.phoneNumber }}</span>
+                            </div>
+                            <div class="mock-row">
+                                <span class="mock-row-label">Member since</span>
+                                <span class="mock-row-value">Jan 2024</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="user-meta">
-                    <div class="meta-item"><strong>Email</strong><br>{{ user?.emailId }}</div>
-                    <div class="meta-item"><strong>Phone</strong><br>{{ user?.phoneNumber }}</div>
-                    <div class="meta-item"><strong>Member since</strong><br>Jan 2024</div>
+
+                <div class="feature-card tone-blue">
+                    <div class="feature-header">
+                        <span class="feature-icon icon-blue">
+                            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0a1 1 0 110 2 1 1 0 010-2zm2 14H8v-2h6v2zm3-4H8v-2h9v2zm0-4H8V7h9v2z"/></svg>
+                        </span>
+                        <span class="feature-title">Complaint overview</span>
+                    </div>
+                    <p class="feature-desc">Track how every complaint is progressing, at a glance.</p>
+
+                    <div class="feature-mock">
+                        <div class="mock-title">Complaint status</div>
+
+                        <div class="status-row">
+                            <span class="status-label">Total</span>
+                            <div class="status-bar"><div class="status-fill purple" style="width:100%"></div></div>
+                            <span class="status-count">120</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="status-label">Pending</span>
+                            <div class="status-bar"><div class="status-fill amber" style="width:29%"></div></div>
+                            <span class="status-count">35</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="status-label">Resolved</span>
+                            <div class="status-bar"><div class="status-fill green" style="width:71%"></div></div>
+                            <span class="status-count">85</span>
+                        </div>
+
+                        <div class="mock-footnote">70.8% resolution rate</div>
+                    </div>
+                </div>
+
+            <div class="recent-card">
+                <div class="recent-header">
+                    <div>
+                        <div class="recent-title">Recent complaints</div>
+                        <div class="recent-sub">Latest activity across all departments</div>
+                    </div>
+                    <button class="recent-view-all" routerLink="/admin/all-complaint">
+                        View all
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                    </button>
+                </div>
+
+                <div class="recent-table">
+                    <div class="recent-row recent-row-head">
+                        <span>Complaint</span>
+                        <span>Complainant</span>
+                        <span>Department</span>
+                        <span>Status</span>
+                        <span>Date</span>
+                    </div>
+
+                    <div class="recent-row">
+                        <span class="recent-subject">Illegal tree felling near reserve boundary</span>
+                        <span class="recent-person"><span class="mini-avatar">A</span>Anita Verma</span>
+                        <span class="recent-dept">Forest Range 3</span>
+                        <span><span class="pill pill-amber">Pending</span></span>
+                        <span class="recent-date">22 Jul 2026</span>
+                    </div>
+                    <div class="recent-row">
+                        <span class="recent-subject">Encroachment on protected wetland area</span>
+                        <span class="recent-person"><span class="mini-avatar">S</span>Sanjay Rao</span>
+                        <span class="recent-dept">Wildlife Wing</span>
+                        <span><span class="pill pill-blue">In review</span></span>
+                        <span class="recent-date">21 Jul 2026</span>
+                    </div>
+                    <div class="recent-row">
+                        <span class="recent-subject">Unauthorized construction inside buffer zone</span>
+                        <span class="recent-person"><span class="mini-avatar">P</span>Priya Nair</span>
+                        <span class="recent-dept">Forest Range 1</span>
+                        <span><span class="pill pill-green">Resolved</span></span>
+                        <span class="recent-date">19 Jul 2026</span>
+                    </div>
+                    <div class="recent-row">
+                        <span class="recent-subject">Poaching activity reported near river trail</span>
+                        <span class="recent-person"><span class="mini-avatar">R</span>Ravi Kumar</span>
+                        <span class="recent-dept">Wildlife Wing</span>
+                        <span><span class="pill pill-green">Resolved</span></span>
+                        <span class="recent-date">18 Jul 2026</span>
+                    </div>
+                    <div class="recent-row">
+                        <span class="recent-subject">Illegal dumping near forest checkpoint</span>
+                        <span class="recent-person"><span class="mini-avatar">M</span>Meena Iyer</span>
+                        <span class="recent-dept">Forest Range 2</span>
+                        <span><span class="pill pill-amber">Pending</span></span>
+                        <span class="recent-date">17 Jul 2026</span>
+                    </div>
                 </div>
             </div>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-icon purple">
-                        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
-                    </div>
-                    <div>
-                        <div class="stat-label">Total Complaints</div>
-                        <div class="stat-value purple">120</div>
-                        <div class="stat-trend">All time</div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-icon amber">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
-                    </div>
-                    <div>
-                        <div class="stat-label">Pending</div>
-                        <div class="stat-value amber">35</div>
-                        <div class="stat-trend">Needs attention</div>
-                    </div>
-                </div>
-                <div class="stat">
-                    <div class="stat-icon green">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" /></svg>
-                    </div>
-                    <div>
-                        <div class="stat-label">Resolved</div>
-                        <div class="stat-value green">85</div>
-                        <div class="stat-trend">70.8% resolution rate</div>
-                    </div>
-                </div>
-            </div>
-            <div class="actions-row">
-                <!-- <div class="action-card">
-                    <div class="action-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" /></svg>
-                    </div>
-                    <div>
-                        <div class="action-title">Add Complaint</div>
-                        <div class="action-desc">Submit a new public complaint</div>
-                    </div>
-                    <span class="action-arrow">›</span>
-                </div> -->
-                <div class="action-card">
-                    <div class="action-icon">
-                        <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" /></svg>
-                    </div>
-                    <div>
-                        <div class="action-title">View Complaints</div>
-                        <div class="action-desc">Browse and manage all records</div>
-                    </div>
-                    <span class="action-arrow">›</span>
-                </div>
-            </div>
+
         </div>
     </div>
+</div> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>dashboard.component.html</title>
+</head>
+<body>
+<!-- Paste this inside your Angular component template -->
+
+<div class="db-wrap">
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h2>Welcome back, {{user?.firstName}}</h2>
+        <p>Here's what's happening with complaints today</p>
+      </div>
+      <div class="topbar-right">
+        <div class="avatar">{{user?.firstName?.[0]}}{{user?.lastName?.[0]}}</div>
+        <button class="logout-btn" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="feature-grid">
+
+        <div class="feature-card tone-violet">
+          <div class="feature-header">
+            <span class="feature-title">Your Profile</span>
+          </div>
+          <p class="feature-desc">Everything about your account.</p>
+          <div class="feature-mock">
+            <div class="mock-greeting">Hello {{user?.firstName}} {{user?.lastName}}</div>
+            <span class="user-role">{{user?.roleName}}</span>
+
+            <div class="mock-rows">
+              <div class="mock-row">
+                <span>Email</span>
+                <span>{{user?.emailId}}</span>
+              </div>
+              <div class="mock-row">
+                <span>Phone</span>
+                <span>{{user?.phoneNumber}}</span>
+              </div>
+              <div class="mock-row">
+                <span>Member Since</span>
+                <span>Jan 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card tone-blue">
+          <div class="feature-header">
+            <span class="feature-title">Complaint Overview</span>
+          </div>
+          <p class="feature-desc">Track complaint status.</p>
+
+          <div class="feature-mock">
+            <div class="mock-title">Complaint Status</div>
+
+            <div class="status-row">
+              <span>Total</span>
+              <div class="status-bar"><div class="status-fill purple" style="width:100%"></div></div>
+              <span>120</span>
+            </div>
+
+            <div class="status-row">
+              <span>Pending</span>
+              <div class="status-bar"><div class="status-fill amber" style="width:29%"></div></div>
+              <span>35</span>
+            </div>
+
+            <div class="status-row">
+              <span>Resolved</span>
+              <div class="status-bar"><div class="status-fill green" style="width:71%"></div></div>
+              <span>85</span>
+            </div>
+
+            <div class="mock-footnote">70.8% Resolution Rate</div>
+          </div>
+        </div>
+
+
+
+        <div class="recent-card">
+  <div class="recent-header">
+    <div>
+      <div class="recent-title">Recent Complaints</div>
+      <div class="recent-sub">Latest activity</div>
+    </div>
+
+    <button class="recent-view-all" routerLink="/admin/all-complaint">
+      View All
+    </button>
+  </div>
+
+
+  <div class="recent-table">
+
+    <div class="recent-row recent-row-head">
+      <span>Complaint</span>
+      <span>Complainant</span>
+      <span>Department</span>
+      <span>Status</span>
+      <span>Date</span>
+    </div>
+
+
+    <div class="recent-row" *ngFor="let c of recentComplaints">
+
+      <span class="recent-subject">
+        {{c.categoryName || c.cP_RefNo}}
+      </span>
+
+
+      <span class="recent-person">
+        <span class="mini-avatar">
+          {{c.cP_Name?.charAt(0)}}
+        </span>
+        {{c.cP_Name}}
+      </span>
+
+
+      <span class="recent-dept">
+        {{c.departmentName || c.department}}
+      </span>
+
+
+      <span>
+        <span class="pill">
+          {{c.cP_Status}}
+        </span>
+      </span>
+
+
+      <span class="recent-date">
+        {{c.createdDate || c.cP_CreatedDate}}
+      </span>
+
+    </div>
+
+
+    <!-- No data message -->
+    <div *ngIf="recentComplaints.length === 0" class="recent-row">
+      <span style="grid-column:1/6;text-align:center;">
+        No recent complaints found
+      </span>
+    </div>
+
+
+  </div>
 </div>
+
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

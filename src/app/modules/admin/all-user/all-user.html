@@ -132,7 +132,6 @@
 </div> -->
 
 
-<!-- Main Content -->
 <div class="content">
 
   <div class="header">
@@ -146,6 +145,7 @@
     </button>
   </div>
 
+
   <div class="card">
 
     <table>
@@ -158,58 +158,87 @@
           <th>Role</th>
           <th>Department</th>
           <th>Status</th>
-          <!-- <th>Action</th> -->
         </tr>
       </thead>
 
+
       <tbody>
 
-        <tr *ngFor="let user of userList">
+        <tr *ngFor="let user of userList; let i = index">
 
-          <td>{{ user.name }}</td>
+          <!-- Name with Avatar -->
+          <td>
+            <div class="Forest-info">
 
-          <td>{{ user.email }}</td>
+              <div class="avatar-sm" [ngClass]="getAvatarClass(i)">
+                {{ user.name?.charAt(0)?.toUpperCase() }}
+              </div>
 
-          <td>{{ user.mobile }}</td>
+              <div>
+                <p class="name">
+                  {{ user.name }}
+                </p>
+              </div>
 
+            </div>
+          </td>
+
+
+          <!-- Email -->
+          <td>
+            {{ user.email }}
+          </td>
+
+
+          <!-- Mobile -->
+          <td>
+            {{ user.mobile }}
+          </td>
+
+
+          <!-- Role -->
           <td>
             <span class="role">
               {{ user.role }}
             </span>
           </td>
 
-          <td>{{ user.department }}</td>
 
+          <!-- Department -->
           <td>
+            {{ user.department }}
+          </td>
+
+
+          <!-- Status -->
+          <td>
+
             <span
               class="status"
               [ngClass]="{
                 'active': user.status === 'Active',
                 'inactive': user.status === 'Inactive'
               }">
+
               {{ user.status }}
+
             </span>
+
           </td>
 
-          <!-- <td>
-
-            <button class="edit-btn">
-              Edit
-            </button>
-
-            <button class="delete-btn">
-              Delete
-            </button>
-
-          </td> -->
 
         </tr>
 
+
+        <!-- Empty Data -->
         <tr *ngIf="userList.length === 0">
-          <td colspan="7" style="text-align:center; padding:20px;">
+
+          <td colspan="6" style="text-align:center; padding:20px;">
             No Users Found
           </td>
+
         </tr>
+
 
       </tbody>
 

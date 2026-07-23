@@ -1,227 +1,710 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================
+   VARIABLES
+============================================ */
+
+:host {
+
+  --purple:#7c3aed;
+  --purple-light:#a78bfa;
+  --purple-soft:#ede9fe;
+
+  --blue:#0ea5e9;
+  --green:#10b981;
+  --red:#dc2626;
+
+  --text-dark:#1e1b4b;
+  --text-body:#334155;
+  --text-muted:#94a3b8;
+
+  --glass:rgba(255,255,255,.72);
+  --glass-border:rgba(255,255,255,.9);
+
+  --shadow:0 8px 40px rgba(139,92,246,.08);
+
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6fb;
-}
 
-/* Layout */
+
+/* ============================================
+   BACKGROUND
+============================================ */
 
 .layout {
-    display: flex;
-    min-height: 100vh;
-}
 
-/* Sidebar */
+  min-height:100vh;
 
-.sidebar {
-    width: 260px;
-    background: #0083C8;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
+  padding:28px;
 
-.logo h2 {
-    margin-bottom: 5px;
-}
+  font-family:'Inter','Segoe UI',sans-serif;
 
-.logo p {
-    font-size: 13px;
-    color: #ddd;
-}
+  background:#f5f7ff;
 
-.menu {
-    list-style: none;
-    margin-top: 40px;
-    flex: 1;
-}
+  background-image:
 
-.menu li {
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .3s;
-}
+  radial-gradient(
+    ellipse 60% 40% at 0% 0%,
+    rgba(199,210,254,.7),
+    transparent 60%
+  ),
 
-.menu li:hover {
-    background: rgba(255,255,255,.15);
-}
+  radial-gradient(
+    ellipse 50% 40% at 100% 0%,
+    rgba(196,232,255,.6),
+    transparent 55%
+  ),
 
-.menu li.active {
-    /* background: #d3ddf3; */
-      background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-.toggle-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
-.menu span {
-    margin-left: 10px;
-}
+  radial-gradient(
+    ellipse 40% 30% at 50% 100%,
+    rgba(251,207,232,.4),
+    transparent 60%
+  );
 
-.sidebar-collapsed .sb-brand-text {
-  opacity: 0;
-  width: 0;
-  pointer-events: none;
+  position:relative;
+
+  overflow:hidden;
+
 }
 
 
-/* ===== TOGGLE BUTTON ===== */
-.toggle-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+
+/* Glow */
+
+.layout::before,
+.layout::after {
+
+content:"";
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(70px);
+
+animation:float 10s infinite ease-in-out;
+
+pointer-events:none;
+
 }
 
 
-/* ===== BRAND ===== */
-.sb-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 22px 20px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+.layout::before {
+
+width:350px;
+height:350px;
+
+background:rgba(167,139,250,.18);
+
+top:-100px;
+
+right:-70px;
+
 }
 
-.logout-btn {
-    border: none;
-    background: crimson;
-    color: white;
-    padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
+
+
+.layout::after {
+
+width:280px;
+height:280px;
+
+background:rgba(56,189,248,.15);
+
+bottom:-80px;
+
+left:-40px;
+
+animation-delay:-5s;
+
 }
 
-.logout-btn:hover {
-    background: darkred;
+
+
+@keyframes float {
+
+0%,100%{
+transform:translate(0);
 }
 
-/* Content */
+50%{
+transform:translate(20px,-20px);
+}
+
+}
+
+
+
+/* ============================================
+   CONTENT
+============================================ */
+
 
 .content {
-    flex: 1;
-    padding: 30px;
+
+position:relative;
+
+z-index:1;
+
 }
 
-/* Header */
+
+
+/* ============================================
+   HEADER
+============================================ */
+
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:22px;
+
+animation:slideDown .6s ease both;
+
 }
+
+
+
+.header h1 {
+
+margin:0;
+
+font-size:24px;
+
+font-weight:700;
+
+color:var(--text-dark);
+
+}
+
+
+
+.header p {
+
+margin-top:5px;
+
+font-size:13px;
+
+color:var(--text-muted);
+
+}
+
+
+
+/* ============================================
+   BUTTON
+============================================ */
+
 
 .add-btn {
-    border: none;
-    background: #2563eb;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
+
+border:none;
+
+padding:11px 22px;
+
+border-radius:14px;
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#6366f1
+);
+
+color:white;
+
+font-size:13px;
+
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:0 5px 18px rgba(124,58,237,.35);
+
+transition:.25s ease;
+
 }
+
+
 
 .add-btn:hover {
-    background: #1d4ed8;
+
+transform:translateY(-3px);
+
 }
 
-/* Card */
+
+
+/* ============================================
+   CARD
+============================================ */
+
 
 .card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,.1);
-    padding: 20px;
+
+background:var(--glass);
+
+border:1px solid var(--glass-border);
+
+border-radius:22px;
+
+overflow:hidden;
+
+backdrop-filter:blur(20px);
+
+box-shadow:var(--shadow);
+
+animation:slideUp .7s ease .2s both;
+
 }
 
-/* Table */
+
+
+/* ============================================
+   TABLE
+============================================ */
+
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+
+width:100%;
+
+border-collapse:collapse;
+
 }
+
+
+
+thead tr {
+
+background:#eef0fb;
+
+animation:headerPrint .5s ease .45s both;
+
+}
+
+
 
 th {
-    background: #f1f5f9;
-    padding: 15px;
-    text-align: left;
+
+padding:15px 18px;
+
+text-align:left;
+
+font-size:11px;
+
+font-weight:700;
+
+letter-spacing:.8px;
+
+text-transform:uppercase;
+
+color:#334155;
+
+border-bottom:2px solid rgba(167,139,250,.18);
+
 }
+
+
 
 td {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+
+padding:14px 18px;
+
+font-size:13px;
+
+color:var(--text-body);
+
 }
 
-tr:hover {
-    background: #f9fafb;
+
+
+/* ============================================
+   SLOW PRINTING ROW ANIMATION
+============================================ */
+
+
+tbody tr {
+
+opacity:0;
+
+border-bottom:1px solid rgba(226,232,240,.5);
+
+animation:rowPrint .7s ease forwards;
+
+transition:.25s ease;
+
 }
 
-/* Role */
+
+
+/* dynamic delay works from Angular */
+
+tbody tr:hover {
+
+background:rgba(167,139,250,.06);
+
+transform:translateX(5px);
+
+}
+
+
+
+@keyframes rowPrint {
+
+
+from {
+
+opacity:0;
+
+transform:translateY(-25px);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+@keyframes headerPrint {
+
+
+from {
+
+opacity:0;
+
+transform:translateY(-15px);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+/* ============================================
+   USER AVATAR
+============================================ */
+
+
+.Forest-info {
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+
+
+.avatar-sm {
+
+width:34px;
+
+height:34px;
+
+border-radius:10px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:700;
+
+font-size:11px;
+
+color:white;
+
+flex-shrink:0;
+
+}
+
+
+
+.av-purple {
+
+background:linear-gradient(135deg,#7c3aed,#a78bfa);
+
+}
+
+
+.av-blue {
+
+background:linear-gradient(135deg,#0ea5e9,#38bdf8);
+
+}
+
+
+.av-green {
+
+background:linear-gradient(135deg,#10b981,#34d399);
+
+}
+
+
+.av-pink {
+
+background:linear-gradient(135deg,#ec4899,#f472b6);
+
+}
+
+
+.av-amber {
+
+background:linear-gradient(135deg,#f59e0b,#fbbf24);
+
+}
+
+
+
+.name {
+
+margin:0;
+
+font-size:13px;
+
+font-weight:600;
+
+color:var(--text-dark);
+
+}
+
+
+
+.subtext {
+
+font-size:11px;
+
+color:var(--text-muted);
+
+margin:1px 0 0;
+
+}
+
+
+
+/* ============================================
+   ROLE
+============================================ */
+
 
 .role {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 13px;
+
+display:inline-block;
+
+padding:5px 12px;
+
+border-radius:20px;
+
+font-size:11px;
+
+font-weight:700;
+
+background:#ede9fe;
+
+color:#6d28d9;
+
+border:1px solid #ddd6fe;
+
 }
 
-.admin {
-    background: #ede9fe;
-    color: #6d28d9;
-}
 
-.officer {
-    background: #dbeafe;
-    color: #1d4ed8;
-}
 
-/* Status */
+/* ============================================
+   STATUS
+============================================ */
+
 
 .status {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 13px;
+
+padding:5px 12px;
+
+border-radius:30px;
+
+font-size:11px;
+
+font-weight:600;
+
+display:inline-flex;
+
+align-items:center;
+
+gap:6px;
+
 }
+
+
+
+.status::before {
+
+content:"";
+
+width:6px;
+
+height:6px;
+
+border-radius:50%;
+
+background:currentColor;
+
+}
+
+
 
 .active {
-    background: #dcfce7;
-    color: green;
+
+background:#f0fdf4;
+
+color:#166534;
+
+border:1px solid #bbf7d0;
+
 }
+
+
 
 .inactive {
-    background: #fee2e2;
-    color: red;
+
+background:#fff1f2;
+
+color:#be123c;
+
+border:1px solid #fecdd3;
+
 }
 
-/* Buttons */
 
-td button {
-    padding: 7px 12px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 5px;
-    cursor: pointer;
+
+/* ============================================
+   EMPTY DATA
+============================================ */
+
+
+td[colspan] {
+
+text-align:center;
+
+color:#94a3b8;
+
+font-size:14px;
+
 }
 
-td button:first-child {
-    background: orange;
-    color: white;
+
+
+/* ============================================
+   PAGE ANIMATION
+============================================ */
+
+
+@keyframes slideDown {
+
+from {
+
+opacity:0;
+
+transform:translateY(-20px);
+
 }
 
-td button:last-child {
-    background: red;
-    color: white;
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+@keyframes slideUp {
+
+from {
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+
+@media(max-width:768px){
+
+
+.layout{
+
+padding:16px;
+
+}
+
+
+.header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+
+.card{
+
+overflow-x:auto;
+
+}
+
+
+table{
+
+min-width:800px;
+
+}
+
+
 }
