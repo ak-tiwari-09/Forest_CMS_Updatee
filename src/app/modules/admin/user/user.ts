@@ -35,6 +35,7 @@
 //   showConfirmPassword = false;
 //   router: any;
 //   isCollapsed = false;
+// user: any;
 
 //   onSaveUser() {
 //     if (this.password !== this.confirmPassword) {

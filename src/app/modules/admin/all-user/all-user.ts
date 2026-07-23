@@ -100,6 +100,19 @@ export class AllUser implements OnInit {
 
   }
 
+getAvatarClass(index: number) {
+  const classes = [
+    'av-purple',
+    'av-blue',
+    'av-green',
+    'av-pink',
+    'av-amber'
+  ];
+
+  return classes[index % classes.length];
+
+}
+
   addUser() {
     this.router.navigate(['/admin/user']);
   }
