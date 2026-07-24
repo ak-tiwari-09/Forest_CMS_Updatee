@@ -1,8 +1,5 @@
 <div class="db-wrap" [class.sidebar-collapsed]="isCollapsed">
-
-  <!-- ================= SIDEBAR ================= -->
   <div class="sidebar">
-
     <div class="sb-brand">
       <button class="toggle-btn" (click)="toggleSidebar()">
         <svg viewBox="0 0 24 24">
@@ -12,273 +9,364 @@
 
       <div class="sb-brand-text">
         <div class="sb-title">
-          Forest Complaint <br>
+          Forest Complaint<br />
           Management
         </div>
-        <div class="sb-sub">
-          Department Portal
-        </div>
+
+        <div class="sb-sub">Department Portal</div>
       </div>
     </div>
 
     <div class="sb-nav">
-
       <div class="sb-item active" routerLink="/department/complaints">
         <svg viewBox="0 0 24 24">
-          <path
-            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z">
-          </path>
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
         </svg>
 
-        <span class="sb-label">
-          Complaints
-        </span>
+        <span class="sb-label"> Complaints </span>
       </div>
-
-      <div class="sb-item" routerLink="/department/profile">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="8" r="4"></circle>
-          <path d="M4 22c0-4 4-6 8-6s8 2 8 6"></path>
-        </svg>
-
-        <span class="sb-label">
-          Profile
-        </span>
-      </div>
-
     </div>
 
     <div class="sb-footer">
-
       <button class="logout-btn" (click)="logout()">
-
         <svg viewBox="0 0 24 24">
           <path
-            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z">
-          </path>
+            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
         </svg>
 
-        <span class="sb-label">
-          Logout
-        </span>
-
+        <span class="sb-label"> Logout </span>
       </button>
-
     </div>
-
   </div>
 
-  <!-- ================= MAIN CONTENT ================= -->
-
   <div class="main-content">
-
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
 
-    <div class="page-title-section">
-      <div>
-        <h1>Department Complaint Records</h1>
+    <div class="profile-card" *ngIf="departmentUser">
+      <div class="page-title-section">
+        <h1>Welcome back, {{departmentUser.firstName}}</h1>
+
         <p>Review, process and update public complaints</p>
       </div>
     </div>
 
+    <div class="profile-card" *ngIf="departmentUser">
+      <div class="profile-header">
+        <div class="profile-avatar"></div>
+
+        <div>
+          <h2>Your Profile</h2>
+
+          <p>Everything about your account</p>
+        </div>
+      </div>
+
+      <div class="profile-details">
+        <div class="profile-field">
+          <span>Department Name</span>
+          <strong>{{departmentUser.departmentName}}</strong>
+        </div>
+
+        <div class="profile-field">
+          <span>Officer Name</span>
+          <strong>{{departmentUser.firstName}} {{departmentUser.lastName}}</strong>
+        </div>
+
+        <div class="profile-field">
+          <span>Mobile</span>
+          <strong>{{departmentUser.dpMobile}}</strong>
+        </div>
+
+        <div class="profile-field">
+          <span>Email</span>
+          <strong>{{departmentUser.email}}</strong>
+        </div>
+      </div>
+    </div>
+
     <div class="table-card">
-
-      <!-- LOADING -->
-
-      <div *ngIf="isLoading" class="shimmer-wrap">
-
+      <div class="shimmer-wrap" *ngIf="isLoading">
         <div class="shimmer-row" *ngFor="let i of [1,2,3,4,5]">
-
           <div class="shimmer s1"></div>
           <div class="shimmer s2"></div>
           <div class="shimmer s3"></div>
           <div class="shimmer s4"></div>
-
         </div>
-
       </div>
 
-      <!-- TABLE -->
-
-      <table class="Forest-table"
-             *ngIf="!isLoading && filteredComplaints.length > 0">
-
+      <table class="Forest-table" *ngIf="!isLoading && filteredComplaints.length>0">
         <thead>
-
           <tr>
-
-            <th>Citizen</th>
-            <th>Reference No</th>
+            <th>User</th>
+            <th>Complaint No</th>
             <th>Category</th>
             <th>Priority</th>
-            <th>Created Date</th>
+            <th>File Complaint Date</th>
             <th>Status</th>
             <th>Action</th>
-
           </tr>
-
         </thead>
 
         <tbody>
-
           <tr *ngFor="let item of pagedComplaints">
-
             <td>
-
               <div class="Forest-info">
-
-                <div>
-
-                  <p class="name">
-                    {{item.cP_Name}}
-                  </p>
-
-                  <p class="subtext">
-                    Citizen
-                  </p>
-
-                </div>
-
+                <div class="name">{{item.cP_Name}}</div>
               </div>
-
             </td>
 
             <td>
-
-              <span class="ref-id">
-
-                {{item.cP_RefNo}}
-
-              </span>
-
+              <span class="ref-id"> {{item.cP_RefNo}} </span>
             </td>
 
             <td>
-
-              <span class="cat-tag">
-
-                {{item.categoryName || 'General'}}
-
-              </span>
-
+              <span class="cat-tag"> {{item.categoryName || 'General'}} </span>
             </td>
 
             <td>
-
-              <span class="prio-tag"
-                    [ngClass]="{
-                      'high': item.cP_Priority === 'High',
-                      'medium': item.cP_Priority === 'Medium',
-                      'low': item.cP_Priority === 'Low'
-                    }">
-
+              <span class="prio-tag" [ngClass]="{
+'high':item.cP_Priority==='High',
+'medium':item.cP_Priority==='Medium',
+'low':item.cP_Priority==='Low'
+}">
                 {{item.cP_Priority}}
-
               </span>
-
             </td>
 
             <td class="date-cell">
-
               {{item.cP_CreatedAt | date:'dd MMM yyyy'}}
-
             </td>
 
             <td>
-
-              <span class="status-pill"
-                    [ngClass]="{
-                      'pending': item.cP_Status === 'Pending',
-                      'progress': item.cP_Status === 'In Progress',
-                      'resolved': item.cP_Status === 'Resolved' || item.cP_Status === 'Closed'
-                    }">
-
+              <span class="status-pill" [ngClass]="{
+'pending':item.cP_Status==='Pending',
+'progress':item.cP_Status==='In Progress',
+'resolved':item.cP_Status==='Resolved'
+}">
                 {{item.cP_Status}}
-
               </span>
-
             </td>
 
             <td>
-
-              <button class="action-btn">
+              <button class="action-btn" (click)="openComplaintDetails(item.cP_RefNo)">
                 View
               </button>
-
             </td>
-
           </tr>
-
         </tbody>
-
       </table>
 
-      <!-- EMPTY -->
+      <div class="empty-state" *ngIf="!isLoading && filteredComplaints.length===0">
+        <div class="empty-title">No complaints assigned</div>
 
-      <div class="empty-state"
-           *ngIf="!isLoading && filteredComplaints.length === 0">
-
-        <p class="empty-title">
-          No complaints assigned
-        </p>
-
-        <p class="empty-sub">
-          New complaints will appear here.
-        </p>
-
+        <div class="empty-sub">New complaints will appear here.</div>
       </div>
-
-      <!-- PAGINATION -->
-
-      <div class="pagination-bar"
-           *ngIf="!isLoading && filteredComplaints.length > 0">
-
+      <div class="pagination-bar" *ngIf="!isLoading && filteredComplaints.length>0">
         <span class="page-info">
-
-          Showing
-          {{ (currentPage - 1) * pageSize + 1 }}
-          -
-          {{ getPageEnd() }}
-          of
-          {{ filteredComplaints.length }}
-
+          Showing {{(currentPage-1)*pageSize+1}} - {{getPageEnd()}} of
+          {{filteredComplaints.length}}
         </span>
 
         <div class="page-controls">
-
-          <button class="page-btn"
-                  (click)="prevPage()"
-                  [disabled]="currentPage === 1">
-
+          <button class="page-btn" (click)="prevPage()" [disabled]="currentPage===1">
             Prev
-
           </button>
 
-          <button class="page-btn"
-                  *ngFor="let page of totalPagesArray()"
-                  [class.active]="page === currentPage"
-                  (click)="goToPage(page)">
-
+          <button class="page-btn" *ngFor="let page of totalPagesArray()" [class.active]="page===currentPage"
+            (click)="goToPage(page)">
             {{page}}
-
           </button>
 
-          <button class="page-btn"
-                  (click)="nextPage()"
-                  [disabled]="currentPage === totalPages">
-
+          <button class="page-btn" (click)="nextPage()" [disabled]="currentPage===totalPages">
             Next
-
           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- ================= POPUP MODAL ================= -->
+
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-avatar">
+          {{selectedComplaint?.cP_Name?.charAt(0)?.toUpperCase()}}
         </div>
 
+        <div>
+          <h2>{{selectedComplaint?.cP_Name}}</h2>
+
+          <div class="modal-meta">
+            <span class="ref-badge"> {{selectedComplaint?.cP_RefNo}} </span>
+
+            <span class="status-pill"> {{selectedComplaint?.cP_Status}} </span>
+
+            <span class="prio-tag"> {{selectedComplaint?.cP_Priority}} </span>
+          </div>
+        </div>
       </div>
 
+      <button class="modal-close" (click)="closeModal()">✕</button>
     </div>
 
-  </div>
+    <div class="modal-tabs">
+      <button class="tab-btn" [class.active]="activeTab==='personal'" (click)="activeTab='personal'">
+        👤 Personal
+      </button>
 
+      <button class="tab-btn" [class.active]="activeTab==='complaint'" (click)="activeTab='complaint'">
+        📋 Complaint
+      </button>
+
+      <button class="tab-btn" [class.active]="activeTab==='docs'" (click)="activeTab='docs'">
+        📎 Documents
+      </button>
+
+      <button class="tab-btn" [class.active]="activeTab==='update'" (click)="activeTab='update'">
+        ⚙️ Update
+      </button>
+    </div>
+
+    <div class="modal-body" *ngIf="selectedComplaint">
+      <div class="tab-panel" *ngIf="activeTab==='personal'">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label"> Name </span>
+
+            <span class="info-value"> {{selectedComplaint.cP_Name}} </span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label"> Mobile </span>
+
+            <span class="info-value"> {{selectedComplaint.cP_Mobile}} </span>
+          </div>
+
+          <div class="info-item full">
+            <span class="info-label"> Address </span>
+
+            <span class="info-value"> {{selectedComplaint.addr_Full}} </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" *ngIf="activeTab==='complaint'">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label"> Category </span>
+
+            <span class="info-value">
+              {{selectedComplaint.category_Name}}
+            </span>
+          </div>
+
+          <div class="info-item full">
+            <span class="info-label"> Description </span>
+
+            <span class="info-value desc-value">
+              {{selectedComplaint.det_Desc}}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" *ngIf="activeTab==='docs'">
+        <div class="info-grid">
+          <div class="info-item" *ngIf="selectedComplaint.identityDoc_Path">
+            <span class="info-label"> Identity Document </span>
+
+            <span class="info-value">
+              {{selectedComplaint.identityDoc_Name}}
+            </span>
+
+            <img *ngIf="!isPdf(selectedComplaint.identityDoc_Path)"
+              [src]="getImageUrl(selectedComplaint.identityDoc_Path)" class="doc-preview"
+              (error)="onImgError($event)" />
+
+            <div *ngIf="isPdf(selectedComplaint.identityDoc_Path)">
+              📄 PDF Document
+            </div>
+
+            <a class="doc-link" [href]="getImageUrl(selectedComplaint.identityDoc_Path)" target="_blank">
+              View Document
+            </a>
+          </div>
+
+          <div class="info-item" *ngIf="selectedComplaint.supportDoc_Path">
+            <span class="info-label"> Supporting Document </span>
+
+            <span class="info-value">
+              {{selectedComplaint.supportDoc_Name}}
+            </span>
+
+            <img *ngIf="!isPdf(selectedComplaint.supportDoc_Path)"
+              [src]="getImageUrl(selectedComplaint.supportDoc_Path)" class="doc-preview" (error)="onImgError($event)" />
+
+            <div *ngIf="isPdf(selectedComplaint.supportDoc_Path)">
+              📄 PDF Document
+            </div>
+
+            <a class="doc-link" [href]="getImageUrl(selectedComplaint.supportDoc_Path)" target="_blank">
+              View Document
+            </a>
+          </div>
+
+          <div class="info-item full" *ngIf="!selectedComplaint.identityDoc_Path && !selectedComplaint.supportDoc_Path">
+            <span class="info-value"> 📂 No documents uploaded </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" *ngIf="activeTab==='update'">
+        <div class="update-form">
+          <div class="update-field">
+            <label class="update-label"> Change Status </label>
+
+            <select class="detail-select" [(ngModel)]="updatedStatus">
+              <option value="">Select Status</option>
+
+              <option *ngFor="let s of statusList" [value]="s.status_id">
+                {{s.status_Name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="update-field">
+            <label class="update-label"> Change Priority </label>
+
+            <select class="detail-select" [(ngModel)]="updatedPriority">
+              <option value="">Select Priority</option>
+
+              <option *ngFor="let p of priorityList" [value]="p.priority_id">
+                {{p.priority_Name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="update-field">
+            <label class="update-label"> Remark </label>
+
+            <input class="detail-input" type="text" [(ngModel)]="remark" placeholder="Enter Remark" />
+          </div>
+        </div>
+
+        <div class="update-action-row">
+          <button class="btn-update" (click)="updateComplaint()" [disabled]="isUpdating">
+            <span *ngIf="!isUpdating"> 💾 Save Changes </span>
+
+            <span *ngIf="isUpdating"> Saving... </span>
+          </button>
+
+          <span class="update-success" *ngIf="updateSuccess">
+            ✅ Updated successfully!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
