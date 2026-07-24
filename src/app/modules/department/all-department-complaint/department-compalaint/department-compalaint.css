@@ -1470,3 +1470,64 @@ body {
 }
 
 }
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.db-wrap {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.main-content {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.sidebar{
+    width:220px;
+    min-height:100vh;
+    height:auto;
+
+    display:flex;
+    flex-direction:column;
+
+    position:sticky;
+    top:0;
+
+    overflow:hidden;
+}
+
+@media(max-width:768px){
+
+.db-wrap{
+    display:block;
+}
+
+.sidebar{
+
+    width:100%;
+    min-height:auto;
+    height:auto;
+
+    position:relative;
+
+}
+
+.main-content{
+
+    width:100%;
+    padding:15px;
+
+}
+
+}
