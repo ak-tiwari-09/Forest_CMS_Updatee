@@ -1,11 +1,16 @@
 /* ── FOOTER ── */
-.mat-footer {
+/* .mat-footer {
     background: linear-gradient(135deg, #2D1B69, #4A1B8C);
     padding: 24px 20px 16px;
     color: #fff;
     margin-top: auto;
+} */
+.mat-footer {
+    background: linear-gradient(135deg, #172554, #1e3a8a, #2563eb);
+    padding: 24px 20px 16px;
+    color: #ffffff;
+    margin-top: auto;
 }
-
 /* Layout */
 .footer-inner {
     max-width: 1000px;

@@ -53,7 +53,7 @@
     <a href="#features" class="nav-link">Features</a>
     <a href="#how-it-works" class="nav-link">How It Works</a>
 
-    <a href="javascript:void(0)" class="nav-link" role="button" (click)="goToAdd()">New Complaint</a>
+    <a href="javascript:void(0)" class="nav-link" role="button" (click)="goToAdd()">File a Complaint</a>
   </div>
 </div>
 
@@ -190,61 +190,105 @@
   </section>
 
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <div class="steps-wrap" id="how-it-works">
-    <div class="section">
-      <div class="s-eyebrow">Process</div>
-      <h2 class="s-title">How Forest Complaint Management System Works</h2>
-      <p class="s-sub">From registration to resolution — a simple, transparent 5-step process.</p>
+<!-- ===== HOW IT WORKS ===== -->
+<div class="steps-wrap" id="how-it-works">
+  <div class="section">
 
-      <div class="steps-row">
-        <div class="step-card active-step">
-          <div class="step-num">1</div>
-          <h4>Register Complaint</h4>
-          <p>Fill in your personal details, select the forest issue category, describe the incident and upload supporting documents.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step-card active-step" >
-          <div class="step-num">2</div>
-          <h4>Get Reference ID</h4>
-          <p>Receive a unique FC Reference ID instantly. Use this to track your complaint at any time.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step-card active-step">
-          <div class="step-num">3</div>
-          <h4>Forest Officer Review</h4>
-          <p>Our forest Office reviews your complaint, assigns priority, and begins working on the resolution.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step-card active-step">
-          <div class="step-num">4</div>
-          <h4>Department Office Review</h4>
-          <p>Our forest department reviews your complaint, assigns priority, and begins working on the resolution.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step-card active-step">
-          <div class="step-num">5</div>
-          <h4>Resolved & Notified</h4>
-          <p>Once resolved, your status is updated to Resolved and you are notified with the outcome.</p>
-        </div>
+    <div class="s-eyebrow">Process</div>
+
+    <h2 class="s-title">
+      How the Forest Complaint Management System Works
+    </h2>
+
+    <p class="s-sub">
+      Register your complaint, track its progress, and receive updates until the issue is resolved.
+    </p>
+
+    <div class="steps-row">
+
+      <!-- STEP 1 -->
+      <div class="step-card active-step">
+        <div class="step-num">1</div>
+        <h4>Register Complaint</h4>
+        <p>
+          Enter your personal details, select the complaint category, describe the issue, and upload supporting photos or documents.
+        </p>
       </div>
+
+      <div class="step-arrow">→</div>
+
+      <!-- STEP 2 -->
+      <div class="step-card active-step">
+        <div class="step-num">2</div>
+        <h4>Reference ID Generated</h4>
+        <p>
+          A unique Forest Complaint Reference ID is generated instantly. Use this ID to track your complaint status anytime.
+        </p>
+      </div>
+
+      <div class="step-arrow">→</div>
+
+      <!-- STEP 3 -->
+      <div class="step-card active-step">
+        <div class="step-num">3</div>
+        <h4>Forest Officer Review</h4>
+        <p>
+          The assigned Forest Officer verifies the complaint details, reviews the evidence, and performs an initial assessment.
+        </p>
+      </div>
+
+      <div class="step-arrow">→</div>
+
+      <!-- STEP 4 -->
+      <div class="step-card active-step">
+        <div class="step-num">4</div>
+        <h4>Department Review</h4>
+        <p>
+          The Forest Department evaluates the complaint, assigns priority, and forwards it to the appropriate officials for necessary action.
+        </p>
+      </div>
+
+      <div class="step-arrow">→</div>
+
+      <!-- STEP 5 -->
+      <div class="step-card active-step">
+        <div class="step-num">5</div>
+        <h4>Action Taken</h4>
+        <p>
+          The concerned department conducts inspections or investigations, takes corrective action, and records the progress in the system.
+        </p>
+      </div>
+
+      <div class="step-arrow">→</div>
+
+      <!-- STEP 6 -->
+      <div class="step-card active-step">
+        <div class="step-num">6</div>
+        <h4>Resolved & Notification</h4>
+        <p>
+          Once the complaint is resolved, the status is updated, and the complainant is notified with the final outcome and action taken.
+        </p>
+      </div>
+
     </div>
+
   </div>
+</div>
 
 
   <!-- ===== ROLES ===== -->
   <section class="section" id="about">
     <div class="s-eyebrow">Access Levels</div>
-    <h2 class="s-title">Built for Forests & Forest Officials</h2>
+    <h2 class="s-title">Built for User & Forest Officials</h2>
     <p class="s-sub">Two tailored experiences — one powerful platform serving both the public and forest department officials.</p>
 
     <div class="roles-row">
       <div class="role-card role-Forest">
         <div class="role-top">
           <div class="role-icon Forest-icon">👤</div>
-          <div class="role-badge cb-badge">Forest</div>
+          <div class="role-badge cb-badge">User</div>
         </div>
-        <h3>For Forests</h3>
+        <h3>User</h3>
         <p>Report, track, and follow up on forest-related complaints from anywhere. Protecting the forest starts with your voice — and now it's heard.</p>
         <ul class="role-list">
           <li><span class="rc cb">✓</span> Submit complaints with document proof</li>
@@ -252,7 +296,7 @@
           <li><span class="rc cb">✓</span> View all your past complaint records</li>
           <li><span class="rc cb">✓</span> Get notified on status changes</li>
         </ul>
-        <button class="btn-role btn-role-blue" (click)="goToLoginUser()">Login as Forest →</button>
+        <button class="btn-role btn-role-blue" (click)="goToLoginUser()">Login as User →</button>
       </div>
 
       <div class="role-card role-admin">
@@ -260,7 +304,7 @@
           <div class="role-icon admin-icon">🛠️</div>
           <div class="role-badge ab-badge">Admin</div>
         </div>
-        <h3>For Forest Officials</h3>
+        <h3>Forest Officials</h3>
         <p>Manage, resolve, and monitor all forest complaints efficiently. Keep the department running with full oversight and control.</p>
         <ul class="role-list">
           <li><span class="rc ab">✓</span> View all complaints across Forests</li>
@@ -363,11 +407,11 @@
   <section class="cta-section">
     <div class="cta-inner">
       <div class="cta-glow"></div>
-      <h2>Spotted a forest issue?<br><br><br>Let's get it resolved.</h2>
+      <h2>Have a forest grievance?<br><br><br>Report it. We'll take action.</h2>
       <br>
-      <p>Join thousands of Forests who've used the Forest Complaint Management System to have illegal logging, poaching, and encroachment issues heard and resolved quickly by forest officials.</p>
+      <p>Help protect our forests by reporting illegal logging, poaching, encroachment, and other environmental concerns. Your complaint will be reviewed and acted upon by the concerned forest department.</p>
       <div class="cta-btns">
-        <button class="btn-hero" (click)="goToAdd()">File a Complaint Now →</button>
+        <button class="btn-hero" (click)="goToAdd()">File a Complaint →</button>
         <button class="btn-soft" (click)="goToLogin()">Admin Login</button>
       </div>
     </div>
